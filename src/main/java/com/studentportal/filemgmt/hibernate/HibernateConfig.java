@@ -1,6 +1,6 @@
 package com.studentportal.filemgmt.hibernate;
 
-import com.studentportal.filemgmt.core.Document;
+import com.studentportal.filemgmt.document.Document;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -17,13 +17,13 @@ public class HibernateConfig {
 
         // props
         conf.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-        conf.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/file-store?useSSL=false");
+        conf.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/data-store?useSSL=false");
         conf.setProperty("hibernate.connection.username", "root");
         conf.setProperty("hibernate.connection.password", "root");
         conf.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
         conf.setProperty("hibernate.hbm2ddl.auto", "update");
         conf.setProperty("hibernate.show_sql", "true");
-        conf.setProperty(" hibernate.connection.pool_size", "20");
+        conf.setProperty("hibernate.connection.pool_size", "20");
 
         StandardServiceRegistryBuilder b = new StandardServiceRegistryBuilder()
                         .applySettings(conf.getProperties());
@@ -35,5 +35,11 @@ public class HibernateConfig {
             configure();
         }
         return sessionFactory;
+    }
+
+    public static synchronized void closeSessionFactory() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
     }
 }

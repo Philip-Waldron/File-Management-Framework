@@ -1,6 +1,6 @@
 package com.studentportal.filemgmt.hibernate;
 
-import com.studentportal.filemgmt.core.Document;
+import com.studentportal.filemgmt.document.Document;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

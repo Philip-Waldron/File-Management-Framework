@@ -1,6 +1,6 @@
 package com.studentportal.filemgmt.hibernate;
 
-import com.studentportal.filemgmt.core.Document;
+import com.studentportal.filemgmt.document.Document;
 
 import java.util.List;
 

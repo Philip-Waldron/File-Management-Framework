@@ -1,4 +1,4 @@
-package com.studentportal.filemgmt.core;
+package com.studentportal.filemgmt.document;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -6,7 +6,6 @@ import org.apache.commons.io.FilenameUtils;
 import javax.persistence.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -17,50 +16,41 @@ import static javax.persistence.FetchType.LAZY;
 public class Document {
 
     private int id;
+    private byte[] bytes;
     private String fileName;
     private String fileType;
     private String fileSize;
     private Date created;
     private Date modified;
-    private byte[] bytes;
 
     private Document() { }
 
     private Document(int id, final File file) {
         this.id = id;
-        this.fileName = extractFilename(file);
-        this.fileType = extractType(file);
-        this.fileSize = extractFileSize(file);
+        this.bytes = DocumentHelper.extractBytesFromFile(file);
+        this.fileName = DocumentHelper.extractFilename(file);
+        this.fileType = DocumentHelper.extractType(file);
+        this.fileSize = DocumentHelper.extractFileSizeFromBytes(this.bytes);
         this.created = Calendar.getInstance().getTime();
         this.modified = null;
-        this.bytes = extractBytesFromFile(file);
     }
 
-    public static Document createFile(File file) {
+    private Document(int id, final DocumentData docData) {
+        this.id = id;
+        this.bytes = docData.decode();
+        this.fileName = docData.getFileName();
+        this.fileType = docData.getFileType();
+        this.fileSize = DocumentHelper.extractFileSizeFromBytes(this.bytes);
+        this.created = Calendar.getInstance().getTime();
+        this.modified = null;
+    }
+
+    public static Document createDocFromFile(File file) {
         return new Document(0, file);
     }
 
-    private String extractType(File file) {
-        return FilenameUtils.getExtension(file.getName());
-    }
-
-    private String extractFileSize(File file) {
-        return FileUtils.byteCountToDisplaySize(file.length());
-    }
-
-    private byte[] extractBytesFromFile(File file) {
-        byte[] byteArr = null;
-        try {
-            byteArr = FileUtils.readFileToByteArray(file);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return byteArr;
-    }
-
-    private String extractFilename(File file) {
-        String filename = FilenameUtils.getBaseName(file.getAbsolutePath());
-        return filename;
+    public static Document createDocFromDocumentData(DocumentData docData) {
+        return new Document(0, docData);
     }
 
     // setters/getters
@@ -71,7 +61,7 @@ public class Document {
         return id;
     }
 
-    public void setId(int id) {
+    private void setId(int id) {
         this.id = id;
     }
 
@@ -80,7 +70,7 @@ public class Document {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
+    private void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
@@ -89,7 +79,7 @@ public class Document {
         return fileType;
     }
 
-    public void setFileType(String fileType) {
+    private void setFileType(String fileType) {
         this.fileType = fileType;
     }
 
@@ -98,7 +88,7 @@ public class Document {
         return fileSize;
     }
 
-    public void setFileSize(String fileSize) {
+    private void setFileSize(String fileSize) {
         this.fileSize = fileSize;
     }
 
@@ -108,7 +98,7 @@ public class Document {
         return created;
     }
 
-    public void setCreated(Date created) {
+    private void setCreated(Date created) {
         this.created = created;
     }
 
@@ -128,7 +118,7 @@ public class Document {
         return bytes;
     }
 
-    public void setBytes(byte[] bytes) {
+    private void setBytes(byte[] bytes) {
         this.bytes = bytes;
     }
 
