@@ -1,4 +1,4 @@
-package com.studentportal.filemgmt.core;
+package com.studentportal.core;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -20,7 +20,7 @@ public class Server {
                 .port(9990)
                 .build();
 
-        cnf.packages("com.studentportal.filemgmt.api");
+        cnf.packages("com.studentportal.api");
         final HttpServer srv = GrizzlyHttpServerFactory.createHttpServer(baseUri, cnf);
 
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {

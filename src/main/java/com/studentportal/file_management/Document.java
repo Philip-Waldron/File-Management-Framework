@@ -1,11 +1,7 @@
-package com.studentportal.filemgmt.document;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
+package com.studentportal.file_management;
 
 import javax.persistence.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 

@@ -1,6 +1,6 @@
-package com.studentportal.filemgmt.hibernate;
+package com.studentportal.hibernate;
 
-import com.studentportal.filemgmt.document.Document;
+import com.studentportal.file_management.Document;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;

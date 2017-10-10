@@ -1,4 +1,4 @@
-package com.studentportal.filemgmt.hibernate;
+package com.studentportal.hibernate;
 
 import java.io.Serializable;
 import java.util.List;

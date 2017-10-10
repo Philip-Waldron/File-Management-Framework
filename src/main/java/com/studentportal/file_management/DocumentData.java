@@ -1,4 +1,4 @@
-package com.studentportal.filemgmt.document;
+package com.studentportal.file_management;
 
 import java.io.Serializable;
 import java.util.Base64;

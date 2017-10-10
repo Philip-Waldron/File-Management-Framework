@@ -1,12 +1,8 @@
-package com.studentportal.filemgmt.core;
+package com.studentportal.core;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.studentportal.filemgmt.document.DocumentData;
-import com.studentportal.filemgmt.document.Document;
-import com.studentportal.filemgmt.document.DocumentHelper;
-import com.studentportal.filemgmt.hibernate.DocumentService;
-import com.studentportal.filemgmt.hibernate.HibernateConfig;
+import com.studentportal.file_management.Document;
+import com.studentportal.file_management.DocumentData;
+import com.studentportal.file_management.DocumentHelper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -21,22 +17,22 @@ import org.apache.http.util.EntityUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 public class Client {
 
     public static void main(String[] args) {
-        try {
-            uploadFileTest();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            uploadFileTest();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         try {
             downloadFileTest();
         } catch (Exception e) {
             e.printStackTrace();
-        }    }
+        }
+    }
 
     public static void downloadFileTest() throws Exception {
         int id = 1;
@@ -61,8 +57,7 @@ public class Client {
             httpClient.close();
         }
 
-        DocumentData docData = DocumentHelper.extractDocDataFromJson(json);
-        Document doc = Document.createDocFromDocumentData(docData);
+        Document doc = DocumentHelper.extractDocumentFromJson(json);
         byte[] bytes = doc.getBytes();
 
         String location = System.getProperty("user.home") + "/Downloads/";

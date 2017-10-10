@@ -1,4 +1,4 @@
-package com.studentportal.filemgmt.document;
+package com.studentportal.file_management;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,6 +21,18 @@ public class DocumentHelper {
             e.printStackTrace();
         }
         return json;
+    }
+
+    public static Document extractDocumentFromJson(String json) {
+        ObjectMapper mapper = new ObjectMapper();
+        Document doc = null;
+
+        try {
+            doc = mapper.readValue(json, Document.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return doc;
     }
 
     public static DocumentData extractDocDataFromJson(String json) {
