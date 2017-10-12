@@ -1,7 +1,7 @@
 package com.studentportal.core;
 
+import com.studentportal.commands.DownloadDocumentCommand;
 import com.studentportal.file_management.Document;
-import com.studentportal.file_management.DocumentData;
 import com.studentportal.file_management.DocumentHelper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,6 +21,12 @@ import java.io.IOException;
 public class Client {
 
     public static void main(String[] args) {
+        /*
+         * TODO: Add userId field in document
+         * TODO: Add groupId field in document
+         * TODO: Use builder pattern for HibernateConfig
+         * TODO: Write assignment package
+         */
 //        try {
 //            uploadFileTest();
 //        } catch (Exception e) {
@@ -35,7 +41,7 @@ public class Client {
     }
 
     public static void downloadFileTest() throws Exception {
-        int id = 1;
+        int id = 14;
         String json = null;
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {
@@ -47,6 +53,8 @@ public class Client {
                     if (status >= 200 && status < 300) {
                         HttpEntity entity = response.getEntity();
                         return entity != null ? EntityUtils.toString(entity) : null;
+                    } else if (status == 404) {
+                        throw new ClientProtocolException("Document ID: " + id + " - not found");
                     } else {
                         throw new ClientProtocolException("Unexpected response status: " + status);
                     }
@@ -72,8 +80,7 @@ public class Client {
     public static void uploadFileTest() throws Exception {
         File f = new File("pdf-sample.pdf");
         Document doc = Document.createDocFromFile(f);
-        DocumentData docData = new DocumentData(doc);
-        String json = DocumentHelper.convertDocDataToJson(docData);
+        String json = DocumentHelper.convertDocToJson(doc);
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
         try {

@@ -14,7 +14,9 @@ public class DocumentDAO implements GenericDAO<Document, Integer> {
     private Session currentSession;
     private Transaction currentTransaction;
 
-    public DocumentDAO() { }
+    public DocumentDAO() {
+
+    }
 
     @Override
     public Document findById(Integer id) {

@@ -1,14 +1,14 @@
 package com.studentportal.api;
 
 import com.studentportal.commands.DownloadDocumentCommand;
+import com.studentportal.commands.UploadDocumentCommand;
 import com.studentportal.file_management.Document;
-import com.studentportal.file_management.DocumentData;
 import com.studentportal.file_management.DocumentHelper;
-import com.studentportal.hibernate.DocumentService;
 
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.logging.Logger;
 
 @Path("/file-mgmt")
@@ -17,38 +17,22 @@ import java.util.logging.Logger;
 public class FileManagementApi {
 
     private static Logger LOG = Logger.getLogger(FileManagementApi.class.getName());
-//    private DocumentService ds = new DocumentService();
 
-//    @POST
-//    @Path("/upload")
-//    public void uploadDocument(String json) {
-//        LOG.info("hit upload api");
-//
-//        DocumentData docData = DocumentHelper.extractDocDataFromJson(json);
-//        if (docData != null) {
-//            Document doc = Document.createDocFromDocumentData(docData);
-//            ds.save(doc);
-//            LOG.info("file uploaded");
-//        } else {
-//            LOG.severe("docData is NULL");
-//        }
-//    }
+    @POST
+    @Path("/upload")
+    public void uploadDocument(String json) {
+        LOG.info("hit upload api");
+        Document doc = DocumentHelper.extractDocumentFromJson(json);
+        UploadDocumentCommand cmd = new UploadDocumentCommand(doc);
+        cmd.execute();
+    }
 
     @GET
     @Path("/download/{docId}")
     public Document downloadDocument(@PathParam("docId") int docId) {
         LOG.info("hit download api");
-//        Document doc = ds.findById(docId);
-//        if (doc == null) {
-//
-//        }
-//        DocumentData docData = new DocumentData(doc);
-//        LOG.info("file downloaded");
-//        return docData;
-        LOG.info("executing download command");
-        DownloadDocumentCommand download = new DownloadDocumentCommand(docId);
-        Document doc = download.execute();
-        LOG.info("command executed");
+        DownloadDocumentCommand cmd = new DownloadDocumentCommand(docId);
+        Document doc = (Document) cmd.execute();
         return doc;
     }
 }

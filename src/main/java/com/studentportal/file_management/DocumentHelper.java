@@ -12,11 +12,11 @@ import java.io.IOException;
 
 public class DocumentHelper {
 
-    public static String convertDocDataToJson(DocumentData docData) {
-        ObjectMapper om = new ObjectMapper();
+    public static String convertDocToJson(Document doc) {
+        ObjectMapper mapper = new ObjectMapper();
         String json = null;
         try {
-            json = om.writeValueAsString(docData);
+            json = mapper.writeValueAsString(doc);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -33,22 +33,6 @@ public class DocumentHelper {
             e.printStackTrace();
         }
         return doc;
-    }
-
-    public static DocumentData extractDocDataFromJson(String json) {
-        ObjectMapper mapper = new ObjectMapper();
-        DocumentData docData = null;
-
-        try {
-            docData = mapper.readValue(json, DocumentData.class);
-        } catch (JsonParseException e) {
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return docData;
     }
 
     public static String extractType(File file) {

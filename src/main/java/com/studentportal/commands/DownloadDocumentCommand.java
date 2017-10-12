@@ -1,9 +1,10 @@
 package com.studentportal.commands;
 
-import com.studentportal.exceptions.DocumentNotFoundException;
 import com.studentportal.file_management.Document;
-import com.studentportal.file_management.DocumentData;
 import com.studentportal.hibernate.DocumentService;
+
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
 
 public class DownloadDocumentCommand implements Command {
 
@@ -14,13 +15,12 @@ public class DownloadDocumentCommand implements Command {
         this.docId = docId;
     }
 
-    public Document execute() {
+    public Object execute() {
         Document doc = docService.findById(docId);
         if (doc != null) {
             return doc;
         } else {
-            throw new DocumentNotFoundException(
-                    "document id does not exist");
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
     }
 }

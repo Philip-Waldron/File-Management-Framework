@@ -31,22 +31,9 @@ public class Document {
         this.modified = null;
     }
 
-    private Document(int id, final DocumentData docData) {
-        this.id = id;
-        this.bytes = docData.decode();
-        this.fileName = docData.getFileName();
-        this.fileType = docData.getFileType();
-        this.fileSize = DocumentHelper.extractFileSizeFromBytes(this.bytes);
-        this.created = Calendar.getInstance().getTime();
-        this.modified = null;
-    }
 
     public static Document createDocFromFile(File file) {
         return new Document(0, file);
-    }
-
-    public static Document createDocFromDocumentData(DocumentData docData) {
-        return new Document(0, docData);
     }
 
     // setters/getters
