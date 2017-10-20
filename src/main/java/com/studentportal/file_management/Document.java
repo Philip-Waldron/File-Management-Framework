@@ -25,7 +25,7 @@ public class Document {
         this.id = id;
         this.bytes = DocumentHelper.extractBytesFromFile(file);
         this.fileName = DocumentHelper.extractFilename(file);
-        this.fileType = DocumentHelper.extractType(file);
+        this.fileType = DocumentHelper.extractExtension(file);
         this.fileSize = DocumentHelper.extractFileSizeFromBytes(this.bytes);
         this.created = Calendar.getInstance().getTime();
         this.modified = null;
@@ -53,7 +53,7 @@ public class Document {
         return fileName;
     }
 
-    private void setFileName(String fileName) {
+    public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 

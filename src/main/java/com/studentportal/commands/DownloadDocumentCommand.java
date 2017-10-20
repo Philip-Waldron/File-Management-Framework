@@ -6,7 +6,7 @@ import com.studentportal.hibernate.DocumentService;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
-public class DownloadDocumentCommand implements Command {
+public class DownloadDocumentCommand implements Command<Document> {
 
     private DocumentService docService = new DocumentService();
     private int docId;
@@ -15,7 +15,7 @@ public class DownloadDocumentCommand implements Command {
         this.docId = docId;
     }
 
-    public Object execute() {
+    public Document execute() {
         Document doc = docService.findById(docId);
         if (doc != null) {
             return doc;

@@ -1,5 +1,9 @@
 package com.studentportal.hibernate;
 
+import com.studentportal.assignments.Assignment;
+import com.studentportal.assignments.ProjectAssignment;
+import com.studentportal.assignments.QuizAssignment;
+import com.studentportal.assignments.QuizQuestion;
 import com.studentportal.file_management.Document;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -14,6 +18,10 @@ public class HibernateConfig {
 
         // class mappings
         conf.addAnnotatedClass(Document.class);
+        conf.addAnnotatedClass(Assignment.class);
+        conf.addAnnotatedClass(QuizAssignment.class);
+        conf.addAnnotatedClass(QuizQuestion.class);
+        conf.addAnnotatedClass(ProjectAssignment.class);
 
         // props
         conf.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");

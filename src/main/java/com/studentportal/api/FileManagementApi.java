@@ -1,14 +1,15 @@
 package com.studentportal.api;
 
 import com.studentportal.commands.DownloadDocumentCommand;
+import com.studentportal.commands.GetAllDocumentsCommand;
 import com.studentportal.commands.UploadDocumentCommand;
 import com.studentportal.file_management.Document;
 import com.studentportal.file_management.DocumentHelper;
-
+import com.studentportal.hibernate.DocumentService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Path("/file-mgmt")
@@ -17,22 +18,31 @@ import java.util.logging.Logger;
 public class FileManagementApi {
 
     private static Logger LOG = Logger.getLogger(FileManagementApi.class.getName());
+    private DocumentService docService = new DocumentService();
 
     @POST
-    @Path("/upload")
+    @Path("/document/upload")
     public void uploadDocument(String json) {
         LOG.info("hit upload api");
         Document doc = DocumentHelper.extractDocumentFromJson(json);
-        UploadDocumentCommand cmd = new UploadDocumentCommand(doc);
+        UploadDocumentCommand cmd = new UploadDocumentCommand(doc, docService);
         cmd.execute();
     }
 
     @GET
-    @Path("/download/{docId}")
+    @Path("document/download/{docId}")
     public Document downloadDocument(@PathParam("docId") int docId) {
         LOG.info("hit download api");
         DownloadDocumentCommand cmd = new DownloadDocumentCommand(docId);
-        Document doc = (Document) cmd.execute();
+        Document doc = cmd.execute();
         return doc;
+    }
+
+    @GET
+    @Path("document/download/all")
+    public List<Document> getAllDocuments() {
+        GetAllDocumentsCommand cmd = new GetAllDocumentsCommand(docService);
+        List<Document> docs = cmd.execute();
+        return docs;
     }
 }

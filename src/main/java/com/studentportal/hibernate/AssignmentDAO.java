@@ -1,6 +1,6 @@
 package com.studentportal.hibernate;
 
-import com.studentportal.file_management.Document;
+import com.studentportal.assignments.Assignment;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -9,50 +9,48 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-public class DocumentDAO implements GenericDAO<Document, Integer> {
+public class AssignmentDAO implements GenericDAO<Assignment, Integer> {
 
     private Session currentSession;
     private Transaction currentTransaction;
 
-    public DocumentDAO() {}
-
     @Override
-    public Document findById(Integer id) {
-        Document doc = getCurrentSession().get(Document.class, id);
-        return doc;
+    public Assignment findById(Integer id) {
+        Assignment a  = (Assignment) getCurrentSession().get(Assignment.class, id);
+        return a;
     }
 
     @Override
-    public List<Document> findAll() {
+    public List<Assignment> findAll() {
         CriteriaBuilder builder = getCurrentSession().getCriteriaBuilder();
-        CriteriaQuery<Document> query = builder.createQuery(Document.class);
-        Root<Document> docRoot = query.from(Document.class);
-        query.select(docRoot);
-        List<Document> docs = getCurrentSession().createQuery(query)
+        CriteriaQuery<Assignment> query = builder.createQuery(Assignment.class);
+        Root<Assignment> aRoot = query.from(Assignment.class);
+        query.select(aRoot);
+        List<Assignment> aList = getCurrentSession().createQuery(query)
                 .getResultList();
-        return docs;
+        return aList;
     }
 
     @Override
-    public void save(Document entity) {
+    public void save(Assignment entity) {
         getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(Document entity) {
+    public void update(Assignment entity) {
         getCurrentSession().update(entity);
     }
 
     @Override
-    public void delete(Document entity) {
+    public void delete(Assignment entity) {
         getCurrentSession().delete(entity);
     }
 
     @Override
     public void deleteAll() {
-        List<Document> docs = findAll();
-        for(Document doc : docs) {
-            delete(doc);
+        List<Assignment> aList = findAll();
+        for(Assignment a : aList) {
+            delete(a);
         }
     }
 

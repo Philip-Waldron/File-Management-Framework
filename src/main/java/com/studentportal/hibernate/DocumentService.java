@@ -12,6 +12,17 @@ public class DocumentService {
         dao = new DocumentDAO();
     }
 
+    public Document findByName(String name) {
+        List<Document> docs = findAll();
+        Document doc = null;
+        for (Document d : docs) {
+            if (d.getFileName().equals(name)) {
+                doc = d;
+            }
+        }
+        return doc;
+    }
+
     public Document findById(int id) {
         dao.openCurrentSession();
         Document doc = dao.findById(id);
