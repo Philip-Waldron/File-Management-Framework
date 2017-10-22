@@ -18,9 +18,7 @@ public abstract class Ui {
         this.frame = frame;
     }
 
-    public void show() {
-        frame.setVisible(true);
-    }
+    public void show() { frame.setVisible(true); }
     public void close() {
         frame.dispose();
     }
