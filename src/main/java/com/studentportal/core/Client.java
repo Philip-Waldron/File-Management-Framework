@@ -6,6 +6,7 @@ import com.studentportal.ui.FileManagementUi;
 public class Client {
 
     public static void main(String[] args) {
+        assignmentUi();
     }
 
     private static void assignmentUi() {
