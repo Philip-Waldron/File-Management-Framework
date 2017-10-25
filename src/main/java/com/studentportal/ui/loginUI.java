@@ -1,22 +1,16 @@
 package com.studentportal.ui;
+
 import com.studentportal.core.UserAction;
-import com.studentportal.core.UserType;
-import java.awt.GridLayout;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
 
 /**
  * User interface for logging in a user
  */
 public class loginUI extends Ui {
-    private JFrame loginFrame;
-
     private JLabel UserNumLabel;
     private JLabel passwordLabel;
 
@@ -31,11 +25,11 @@ public class loginUI extends Ui {
     }
 
     private void prepareGUI() {
-        loginFrame = new JFrame("Login");
-        loginFrame.setSize(400, 200);
-        loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        loginFrame.setLocationRelativeTo(null);
-        loginFrame.setLayout(new GridLayout(3, 2));
+        getFrame().setTitle("Login");
+        getFrame().setSize(400, 200);
+        getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getFrame().setLocationRelativeTo(null);
+        getFrame().setLayout(new GridLayout(3, 2));
 
         UserNumLabel = new JLabel("User Number: ");
         UserNumField = new JTextField();
@@ -49,7 +43,7 @@ public class loginUI extends Ui {
             public void actionPerformed(ActionEvent e) {
 
                 if (!validateInput()) {
-                    JOptionPane.showMessageDialog(loginFrame, "Please enter information in all fields", "Error",
+                    JOptionPane.showMessageDialog(getFrame(), "Please enter information in all fields", "Error",
                             JOptionPane.ERROR_MESSAGE);
                 } else {
                     String password = new String(passwordField.getPassword());
@@ -67,7 +61,7 @@ public class loginUI extends Ui {
                     }
                     else{
 
-                        JOptionPane.showMessageDialog(loginFrame, "Your Password or User Number is incorrect, Please enter again ", "Error",
+                        JOptionPane.showMessageDialog(getFrame(), "Your Password or User Number is incorrect, Please enter again ", "Error",
                                 JOptionPane.ERROR_MESSAGE);
 
                     }
@@ -75,7 +69,6 @@ public class loginUI extends Ui {
                 }
             }
         });
-
 
         registerButton = new JButton("Register");
         registerButton.addActionListener(new ActionListener() {
@@ -87,14 +80,14 @@ public class loginUI extends Ui {
             }
         });
 
-        loginFrame.add(UserNumLabel);
-        loginFrame.add(UserNumField);
+        getFrame().add(UserNumLabel);
+        getFrame().add(UserNumField);
 
-        loginFrame.add(passwordLabel);
-        loginFrame.add(passwordField);
+        getFrame().add(passwordLabel);
+        getFrame().add(passwordField);
 
-        loginFrame.add(registerButton);
-        loginFrame.add(loginButton);
+        getFrame().add(registerButton);
+        getFrame().add(loginButton);
     }
 
     private boolean validateInput() {
