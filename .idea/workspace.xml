@@ -1,108 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c77a7ab4-1c95-4389-a896-58673b130965" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/UserFactory.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/cs4227-master.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/UserTypeFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/Student.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/StudentFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/Teacher.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/TeacherFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/UserAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/UserType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/UserTypeFactory.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateProjectRequest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateProjectRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateQuizRequest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateQuizRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/DownloadDocumentRequest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/DownloadDocumentRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/GetAllDocumentsRequest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/GetAllDocumentsRequest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/UploadDocumentRequest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/UploadDocumentRequest.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/CareTaker.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/CareTaker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/Memento.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/Memento.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/MementoConcrete.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/MementoConcrete.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/Originator.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/Originator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Student.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/Student.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/StudentFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/StudentFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Teacher.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/Teacher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/TeacherFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/TeacherFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/User.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/UserAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/UserAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/UserType.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/UserType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/CreateProjectRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/assignments/SaveProjectRequest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/CreateQuizRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/assignments/SaveQuizRequest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/DownloadDocumentRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/documents/GetDocumentRequest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/GetAllDocumentsRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/documents/GetAllDocumentsRequest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/UploadDocumentRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/documents/SaveDocumentRequest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/loginUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/LoginUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/CareTaker.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/CareTaker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Memento.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Memento.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/MementoConcrete.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/MementoConcrete.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Originator.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Originator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/Client.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/core/Client.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/test.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/core/test.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/hibernate/HibernateConfig.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/hibernate/HibernateConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/HttpRequest.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/http/HttpRequest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$4.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AssignmentUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AssignmentUi.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$4.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$5.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/StudentHomePageUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/StudentHomePageUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/TeacherHomePageUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/TeacherHomePageUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS4227.iml" afterPath="$PROJECT_DIR$/CS4227.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/test.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/core/test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/HibernateConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/HibernateConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/HttpRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/HttpRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AnnouncementsUI_teacher.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AnnouncementsUI_teacher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AssignmentUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AssignmentUi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/CreateQuizAssignmentUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/CreateQuizAssignmentUi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/DocumentListDisplayUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/DocumentListDisplayUi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/FileManagementUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/FileManagementUi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/ProjectDetailsUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/ProjectDetailsUi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/UIRegister.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/UIRegister.java" />
-    </list>
+    <list default="true" id="c77a7ab4-1c95-4389-a896-58673b130965" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -113,16 +12,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ReminderTestHarness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/ReminderTestHarness.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="StudentHomePageUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -178,24 +67,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="254">
               <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TeacherHomePageUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TeacherHomePageUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-169">
+            <state relative-caret-position="505">
               <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AssignmentApi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/api/AssignmentApi.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -829,14 +728,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/api/AssignmentApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1210,21 +1101,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-169">
+        <state relative-caret-position="505">
           <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/api/AssignmentApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
