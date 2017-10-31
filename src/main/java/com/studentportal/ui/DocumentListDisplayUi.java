@@ -1,8 +1,9 @@
 package com.studentportal.ui;
 
 import com.studentportal.file_management.Document;
-import com.studentportal.http.DownloadDocumentRequest;
-import com.studentportal.http.RequestHandler;
+import com.studentportal.file_management.DocumentDetails;
+import com.studentportal.http.*;
+import com.studentportal.http.documents.GetDocumentRequest;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -26,7 +27,7 @@ public class DocumentListDisplayUi extends Ui {
 
     public DocumentListDisplayUi(List<Document> docList) {
         this.docList = docList;
-        this.downloadHandler = downloadHandler = new RequestHandler() {
+        this.downloadHandler = new RequestHandler() {
             @Override
             public void onSuccess() {
                 JOptionPane.showMessageDialog(getFrame(),"Successfully downloaded");
@@ -80,9 +81,9 @@ public class DocumentListDisplayUi extends Ui {
                     String location = getDownloadLocationFromUser();
                     String newFilename = getNewFilenameFromUser();
 
-                    DownloadDocumentRequest request = new DownloadDocumentRequest(docId,
-                            location, newFilename);
-                    request.makeRequest(downloadHandler);
+                    RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
+                    GetDocumentRequest request = (GetDocumentRequest) docFactory.getRequest();
+                    request.makeRequest(downloadHandler, new DocumentDetails(docId, location, newFilename));
                 }
             }
         });

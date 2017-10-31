@@ -3,8 +3,8 @@ package com.studentportal.ui;
 import com.studentportal.assignments.AssignmentHelper;
 import com.studentportal.assignments.QuizAssignment;
 import com.studentportal.assignments.QuizQuestion;
-import com.studentportal.http.CreateQuizRequest;
-import com.studentportal.http.RequestHandler;
+import com.studentportal.http.*;
+import com.studentportal.http.assignments.SaveQuizRequest;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
@@ -63,8 +63,11 @@ public class CreateQuizAssignmentUi extends Ui {
                     } else {
                         assignment.setName(newName);
                         String json = AssignmentHelper.convertQuizAssignmentToJson(assignment);
-                        CreateQuizRequest request = new CreateQuizRequest(json);
-                        request.makeRequest(createHandler);
+
+                        RequestAbstractFactory quizReqFactory = RequestFactoryProducer
+                                .getFactory(RequestChoice.QUIZ);
+                        SaveQuizRequest request = (SaveQuizRequest) quizReqFactory.saveRequest();
+                        request.makeRequest(createHandler, json);
                     }
                 } else {
                     JOptionPane.showMessageDialog(getFrame(), e.getMessage());
@@ -145,8 +148,10 @@ public class CreateQuizAssignmentUi extends Ui {
                     assignment.setQuizQuestions(quizList);
 
                     String json = AssignmentHelper.convertQuizAssignmentToJson(assignment);
-                    CreateQuizRequest request = new CreateQuizRequest(json);
-                    request.makeRequest(createHandler);
+                    RequestAbstractFactory quizReqFactory = RequestFactoryProducer
+                            .getFactory(RequestChoice.QUIZ);
+                    SaveQuizRequest request = (SaveQuizRequest) quizReqFactory.saveRequest();
+                    request.makeRequest(createHandler, json);
                 } else {
                     JOptionPane.showMessageDialog(getFrame(), "No questions for quiz");
                 }

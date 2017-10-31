@@ -71,7 +71,7 @@ public class AssignmentUi extends Ui {
     private void prepareUi() {
         getFrame().setTitle("Assignments");
         getFrame().setSize(500, 300);
-        getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getFrame().setLocationRelativeTo(null);
         getFrame().setLayout(new GridLayout(3, 1));
         getFrame().setResizable(false);

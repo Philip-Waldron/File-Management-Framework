@@ -1,6 +1,6 @@
 package com.studentportal.ui;
 
-import com.studentportal.Memento.*;
+import com.studentportal.memento.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,11 +10,10 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class AnnouncementsUI_teacher extends Ui {
 
-    private JFrame AnnouncementsUI_teacher_frame;
+    // private JFrame getFrame();
 
     private JLabel MessageLabel;
 
@@ -25,43 +24,48 @@ public class AnnouncementsUI_teacher extends Ui {
     private JButton Submit;
 
     private JButton Undo;
-
+    private  String []message;
     Originator ori=new Originator();
-    MementoConcrete m;
+    Memento m;
     CareTaker careTaker = new CareTaker();
 
     public AnnouncementsUI_teacher() {
-        AnnouncementsUI_teacher_frame = new JFrame("Announcement");
-        AnnouncementsUI_teacher_frame.setSize(400, 200);
-        AnnouncementsUI_teacher_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        AnnouncementsUI_teacher_frame.setLocationRelativeTo(null);
-        AnnouncementsUI_teacher_frame.setLayout(new GridLayout(2, 3));
+        // getFrame() = new JFrame("Announcement");
+        getFrame().setSize(400, 200);
+        getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getFrame().setLocationRelativeTo(null);
+        getFrame().setLayout(new GridLayout(2, 3));
 
         MessageLabel = new JLabel("Message Area: ");
-        AnnouncementsUI_teacher_frame.add(MessageLabel);
+        getFrame().add(MessageLabel);
         messageField = new JTextArea();
         messageField.setLineWrap(true);
-        AnnouncementsUI_teacher_frame.add(messageField );
+        getFrame().add(messageField );
+
 
         messageField.addKeyListener(new KeyAdapter(){
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == 32) {
-                    String []message=  messageField.getText().split(" ");
+                    message=  messageField.getText().split(" ");
                     careTaker.saveMemento(ori.createMemento( new ArrayList<String>(Arrays.asList(message)) ));
                 }
+               /* else if(e.getKeyCode()==KeyEvent.VK_DELETE){
+                	String message_delete= messageField.getText();
+                	careTaker.saveMemento(ori.createMemento( new ArrayList<String>(Arrays.asList(message_delete)) ));
+                }*/
             }
         });
         Cancel=new JButton("Cancel");
         Cancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                hide();
+                close();
             }
         });
-        AnnouncementsUI_teacher_frame.add(Cancel);
+        getFrame().add(Cancel);
 
         Submit=new JButton("Submit");
-        AnnouncementsUI_teacher_frame.add(Submit);
+        getFrame().add(Submit);
         Submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -78,9 +82,9 @@ public class AnnouncementsUI_teacher extends Ui {
 
             }
         });
-        AnnouncementsUI_teacher_frame.add(Undo);
+        getFrame().add(Undo);
 
-}
+    }
 
     public  static  void main(String [] args){
         AnnouncementsUI_teacher a=new AnnouncementsUI_teacher();

@@ -2,10 +2,106 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c77a7ab4-1c95-4389-a896-58673b130965" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/UserFactory.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cs4227-master.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/UserTypeFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/Student.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/StudentFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/Teacher.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/TeacherFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/User.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/UserAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/UserType.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/UserTypeFactory.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateProjectRequest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateProjectRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateQuizRequest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/CreateQuizRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/DownloadDocumentRequest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/DownloadDocumentRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/GetAllDocumentsRequest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/GetAllDocumentsRequest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/UploadDocumentRequest$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/UploadDocumentRequest.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/CareTaker.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/CareTaker.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/Memento.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/Memento.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/MementoConcrete.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/MementoConcrete.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/Memento/Originator.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/memento/Originator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Student.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/Student.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/StudentFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/StudentFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Teacher.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/Teacher.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/TeacherFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/TeacherFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/User.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/UserAction.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/UserAction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/UserType.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/user/UserType.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/CreateProjectRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/assignments/SaveProjectRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/CreateQuizRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/assignments/SaveQuizRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/DownloadDocumentRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/documents/GetDocumentRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/GetAllDocumentsRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/documents/GetAllDocumentsRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/UploadDocumentRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/documents/SaveDocumentRequest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/loginUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/LoginUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/CareTaker.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/CareTaker.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Memento.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Memento.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/MementoConcrete.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/MementoConcrete.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Originator.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/Memento/Originator.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/Client.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/core/Client.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/core/test.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/core/test.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/hibernate/HibernateConfig.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/hibernate/HibernateConfig.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/http/HttpRequest.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/http/HttpRequest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$4.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AnnouncementsUI_teacher.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AssignmentUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/AssignmentUi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$4.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$5.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/CreateQuizAssignmentUi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/DocumentListDisplayUi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/FileManagementUi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/ProjectDetailsUi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$3.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/RemindersUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/StudentHomePageUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/StudentHomePageUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/TeacherHomePageUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/TeacherHomePageUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/UIRegister.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$1.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$2.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI.class" afterPath="$PROJECT_DIR$/target/classes/com/studentportal/ui/loginUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CS4227.iml" afterPath="$PROJECT_DIR$/CS4227.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/loginUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/loginUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/core/test.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/core/test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/HibernateConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/HibernateConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/http/HttpRequest.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/http/HttpRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AnnouncementsUI_teacher.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AnnouncementsUI_teacher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AssignmentUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AssignmentUi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/CreateQuizAssignmentUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/CreateQuizAssignmentUi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/DocumentListDisplayUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/DocumentListDisplayUi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/FileManagementUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/FileManagementUi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/ProjectDetailsUi.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/ProjectDetailsUi.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/UIRegister.java" afterPath="$PROJECT_DIR$/src/main/java/com/studentportal/ui/UIRegister.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,105 +112,123 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ReminderTestHarness.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/ReminderTestHarness.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-148">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="375">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Quiz.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/Quiz.java">
+      <file leaf-file-name="StudentHomePageUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
-                <element signature="e#0#1566#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Assignment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/Assignment.java">
+      <file leaf-file-name="AnnouncementsUI_teacher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/AnnouncementsUI_teacher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding />
+            <state relative-caret-position="289">
+              <caret line="61" column="21" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+              <folding>
+                <element signature="e#2003#2004#0" expanded="true" />
+                <element signature="e#2042#2043#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QuizAssignment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/QuizAssignment.java">
+      <file leaf-file-name="AdminHomePageUi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/AdminHomePageUi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuizQuestion.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/QuizQuestion.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-373">
+            <state relative-caret-position="60">
               <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/core/test.java">
+      <file leaf-file-name="DocumentListDisplayUi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/DocumentListDisplayUi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <file leaf-file-name="HibernateConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/HibernateConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="375">
+              <caret line="37" column="86" lean-forward="false" selection-start-line="37" selection-start-column="86" selection-end-line="37" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TeacherHomePageUI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-169">
+              <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
               <folding>
-                <marker date="1508970221000" expanded="true" signature="34082:34124" ph="..." />
-                <marker date="1508970221000" expanded="true" signature="34082:34142" ph="..." />
-                <marker date="1508970221000" expanded="true" signature="34082:34155" ph="..." />
-                <marker date="1508970221000" expanded="true" signature="34082:34170" ph="..." />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginUI.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/loginUI.java">
+      <file leaf-file-name="RemindersUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state relative-caret-position="-314">
+              <caret line="51" column="67" lean-forward="false" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ui.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/Ui.java">
+      <file leaf-file-name="HomePageUi.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/HomePageUi.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+              <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -127,8 +241,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/loginUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AssignmentUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AdminHomePageUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentDetailsUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/user/Teacher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/CourseDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/courses/CourseCreator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/CreateCourseRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/RequestChoice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/CreateCourseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/CourseDetailsUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/SaveCourseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/courses/CourseHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/GetAllCoursesCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/CourseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/GetAllCoursesByTeacherCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/GetAllCoursesRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/GetAllUsersByRoleCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/api/UserApi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/users/GetAllUsersRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/users/UserRequestFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/RequestFactoryProducer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/GetAllCoursesByTeacherRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/user/UserHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/AddStudentToCourseRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/ModificationType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/ModifyCourseRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/CourseModificationDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/CourseModificationType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/UpdateCourseDetails.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AddStudentToCourseUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/AddStudentToCourseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/CourseRequestFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/RemoveStudentFromCourseUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentManagementUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/api/CourseApi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/UpdateCourseRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/commands/RemoveStudentFromCourseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/courses/Course.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/user/Student.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemoveStudentFromCourseUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/reminders/ReminderTestHarness.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/HibernateConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/home/HomePageUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/file_management/DocumentListDisplayUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/DocumentListDisplayUi.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/AnnouncementsUI_teacher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java" />
       </list>
     </option>
   </component>
@@ -138,6 +301,15 @@
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="40" />
+    <option name="y" value="22" />
+    <option name="width" value="1197" />
+    <option name="height" value="774" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -154,8 +326,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,15 +370,91 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="studentportal" type="462c0819:PsiDirectoryNode" />
-              <item name="reminders" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="courses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="file_management" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cs4227-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cs4227-project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="studentportal" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.studentportal.ui" />
+      <recent name="com.studentportal.commands" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -218,7 +468,83 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="AnnouncementsUI_teacher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.studentportal.ui.file_management.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.studentportal.ui.AnnouncementsUI_teacher" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CS4227" />
+      <envs />
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.studentportal.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.studentportal.core.Client" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CS4227" />
+      <envs />
+    </configuration>
+    <configuration name="ReminderTestHarness" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.studentportal.reminders.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.studentportal.reminders.ReminderTestHarness" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CS4227" />
+      <envs />
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.studentportal.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.studentportal.core.Server" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CS4227" />
+      <envs />
+    </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -303,7 +629,7 @@
     <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="com.studentportal.core.*" />
+          <option name="PATTERN" value="com.studentportal.security.auth.aws.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -319,9 +645,20 @@
       <module name="CS4227" />
       <envs />
     </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.test" />
+      <item index="1" class="java.lang.String" itemvalue="Application.ReminderTestHarness" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Server" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Client" />
+      <item index="4" class="java.lang.String" itemvalue="Application.AnnouncementsUI_teacher" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.test" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.Client" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="2" class="java.lang.String" itemvalue="Application.AnnouncementsUI_teacher" />
+        <item index="3" class="java.lang.String" itemvalue="Application.ReminderTestHarness" />
+        <item index="4" class="java.lang.String" itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -339,156 +676,555 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="22" width="1097" height="774" extended-state="0" />
+    <frame x="40" y="22" width="1197" height="774" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21502209" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3127962" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31811488" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24329004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21502209" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2028436" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2945508" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24329004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentDetailsUi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="118" column="0" lean-forward="true" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
+        <state relative-caret-position="1182">
+          <caret line="138" column="20" lean-forward="true" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/CourseDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/user/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="44" column="30" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="44" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/file_management/DocumentHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="39" column="20" lean-forward="true" selection-start-line="28" selection-start-column="8" selection-end-line="39" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/commands/GetAllDocumentsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/CourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" column="28" lean-forward="false" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/commands/GetAllCoursesByTeacherCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="42" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/documents/GetAllDocumentsRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="44" column="60" lean-forward="true" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/api/AuthApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="12" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/api/AssignmentApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+          <folding>
+            <element signature="e#1899#1900#0" expanded="true" />
+            <element signature="e#1925#1926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/commands/GetAllUsersByRoleCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="43" lean-forward="false" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/api/UserApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/courses/CourseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="47" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/users/UserRequestFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#279#280#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#715#716#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/RequestFactoryProducer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/users/GetAllUsersRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/user/UserHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/AdminOrTeacherDetailsUi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1315">
+          <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/SaveCourseRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/CourseUpdateType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="28" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/CourseRequestFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/security/aws/SignIn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/AddStudentToCourseUi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2646">
+          <caret line="195" column="5" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="195" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/UpdateCourseDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="46" lean-forward="false" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+          <folding>
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#819#820#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentManagementUi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="61" column="31" lean-forward="true" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/CreateQuizAssignmentUi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="95" column="16" lean-forward="true" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/GetAllCoursesByTeacherRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/commands/AddStudentToCourseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="36" column="9" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="36" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/http/courses/UpdateCourseRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="77" lean-forward="false" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/api/CourseApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/commands/RemoveStudentFromCourseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="31" column="10" lean-forward="true" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/courses/Course.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="64" column="39" lean-forward="false" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/user/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemoveStudentFromCourseUi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="145" column="86" lean-forward="false" selection-start-line="145" selection-start-column="86" selection-end-line="145" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5927#5928#0" expanded="true" />
+            <element signature="e#5966#5967#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/Senders/ReminderSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/Senders/SMSReminderSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/Senders/SenderType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/Senders/PortalReminderSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/Senders/EmailReminderSender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/reminders/ReminderTestHarness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="375">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/Quiz.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/RemindersUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-314">
+          <caret line="51" column="67" lean-forward="false" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/courses/CourseCreator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/HomePageUi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/StudentHomePageUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="e#0#1566#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/Assignment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/AnnouncementsUI_teacher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        <state relative-caret-position="289">
+          <caret line="61" column="21" lean-forward="false" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+          <folding>
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2042#2043#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/DocumentListDisplayUi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/QuizAssignment.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/AdminHomePageUi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/assignments/QuizQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-373">
+        <state relative-caret-position="60">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/core/test.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/hibernate/HibernateConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="37" column="86" lean-forward="false" selection-start-line="37" selection-start-column="86" selection-end-line="37" selection-end-column="86" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/core/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/TeacherHomePageUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="100" column="33" lean-forward="false" selection-start-line="100" selection-start-column="33" selection-end-line="100" selection-end-column="33" />
           <folding>
-            <marker date="1508970221000" expanded="true" signature="34082:34124" ph="..." />
-            <marker date="1508970221000" expanded="true" signature="34082:34142" ph="..." />
-            <marker date="1508970221000" expanded="true" signature="34082:34155" ph="..." />
-            <marker date="1508970221000" expanded="true" signature="34082:34170" ph="..." />
+            <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/Ui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/studentportal/ui/loginUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

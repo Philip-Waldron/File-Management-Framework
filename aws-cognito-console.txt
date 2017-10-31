@@ -1,0 +1,16 @@
+Aws cognito:
+
+Console sign in link - https://483245856044.signin.aws.amazon.com/console
+Username - cod3min3
+Password - cs4227
+
+Then go to this link(Cognito home):
+https://eu-west-1.console.aws.amazon.com/cognito/home?region=eu-west-1#
+
+Click Manage User Pools
+
+At the top right, make sure the region is EU(Ireland)
+
+Select the user pool named ‘testt’
+
+

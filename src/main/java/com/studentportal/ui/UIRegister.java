@@ -6,19 +6,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import org.omg.CORBA.PUBLIC_MEMBER;
-import com.studentportal.core.Student;
-import com.studentportal.core.Teacher;
-import com.studentportal.core.UserAction;
-import com.studentportal.core.UserType;
+
+import com.studentportal.user.UserAction;
 
 public class UIRegister extends Ui {
-    private JFrame registerFrame;
+
 
     private JLabel NameLabel;
     private JTextField NameField;
@@ -39,10 +35,10 @@ public class UIRegister extends Ui {
 
     private void prepareGUI()
     {
-        registerFrame = new JFrame("Register");
-        registerFrame.setSize(400,200);
-        registerFrame.setLocationRelativeTo(null);
-        registerFrame.setLayout(new GridLayout(5, 2));
+
+        getFrame().setSize(400,200);
+        getFrame().setLocationRelativeTo(null);
+        getFrame().setLayout(new GridLayout(5, 2));
 
         NameLabel = new JLabel("User Name");
         NameField = new JTextField();
@@ -78,17 +74,17 @@ public class UIRegister extends Ui {
             }
         });
 
-        registerFrame.add(NameLabel);
-        registerFrame.add(NameField);
+        getFrame().add(NameLabel);
+        getFrame().add(NameField);
 
-        registerFrame.add(PasswordLabel);
-        registerFrame.add(PasswordField);
+        getFrame().add(PasswordLabel);
+        getFrame().add(PasswordField);
 
-        registerFrame.add(EmailLabel);
-        registerFrame.add(EmailField);
-        registerFrame.add(UserTypeLabel);
-        registerFrame.add(cmbMessageList);
-        registerFrame.add(submitButton);
+        getFrame().add(EmailLabel);
+        getFrame().add(EmailField);
+        getFrame().add(UserTypeLabel);
+        getFrame().add(cmbMessageList);
+        getFrame().add(submitButton);
 
     }
 
@@ -100,7 +96,7 @@ public class UIRegister extends Ui {
 
         if(userName.equals("") || Password.length == 0 ||email.equals("")||msg.equals(""))
         {
-            JOptionPane.showMessageDialog(registerFrame, "Please enter information in all fields",
+            JOptionPane.showMessageDialog(getFrame(), "Please enter information in all fields",
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
         else
@@ -108,9 +104,9 @@ public class UIRegister extends Ui {
             String password = new String(PasswordField.getPassword());
             UserAction userAct=new UserAction();
             int userNumber = userAct.Register(msg,userName,password,email);
-            registerFrame.dispatchEvent(new WindowEvent(registerFrame, WindowEvent.WINDOW_CLOSING));
+            getFrame().dispatchEvent(new WindowEvent(getFrame(), WindowEvent.WINDOW_CLOSING));
             Object[] options = {"Cancel", "Go To Profile"};
-            int successResult = JOptionPane.showOptionDialog(registerFrame,
+            int successResult = JOptionPane.showOptionDialog(getFrame(),
                     "Success! You are now registered on our system. Your UserNumber is: "+ userNumber + " Would you like to go to your profile?",
                     "Registration Successful",
                     JOptionPane.YES_NO_CANCEL_OPTION,
@@ -120,9 +116,9 @@ public class UIRegister extends Ui {
                     options[1]);
 
             if(successResult != 0) {
-                TeacherHomePageUI TeacherUI = new TeacherHomePageUI();
-                TeacherUI.show();
-                hide();
+//                TeacherHomePageUI TeacherUI = new TeacherHomePageUI();
+//                TeacherUI.show();
+//                hide();
             }
         }
 

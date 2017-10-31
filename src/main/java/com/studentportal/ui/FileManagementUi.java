@@ -2,9 +2,9 @@ package com.studentportal.ui;
 
 import com.studentportal.file_management.Document;
 import com.studentportal.file_management.DocumentHelper;
-import com.studentportal.http.GetAllDocumentsRequest;
-import com.studentportal.http.RequestHandler;
-import com.studentportal.http.UploadDocumentRequest;
+import com.studentportal.http.*;
+import com.studentportal.http.documents.GetAllDocumentsRequest;
+import com.studentportal.http.documents.SaveDocumentRequest;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
@@ -42,8 +42,10 @@ public class FileManagementUi extends Ui {
                     } else {
                         document.setFileName(name);
                         String json = DocumentHelper.convertDocToJson(document);
-                        UploadDocumentRequest request = new UploadDocumentRequest(json);
-                        request.makeRequest(uploadHandler);
+
+                        RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
+                        SaveDocumentRequest request = (SaveDocumentRequest) docFactory.saveRequest();
+                        request.makeRequest(uploadHandler, json);
                     }
                 } else {
                     JOptionPane.showMessageDialog(getFrame(), e.getMessage());
@@ -65,8 +67,9 @@ public class FileManagementUi extends Ui {
                     document = Document.createDocFromFile(file);
                     if (document != null) {
                         String json = DocumentHelper.convertDocToJson(document);
-                        UploadDocumentRequest request = new UploadDocumentRequest(json);
-                        request.makeRequest(uploadHandler);
+                        RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
+                        SaveDocumentRequest request = (SaveDocumentRequest) docFactory.saveRequest();
+                        request.makeRequest(uploadHandler, json);
                     }
                 }
             }
@@ -87,8 +90,10 @@ public class FileManagementUi extends Ui {
                         JOptionPane.showMessageDialog(getFrame(), e.getMessage());
                     }
                 };
-                GetAllDocumentsRequest request = new GetAllDocumentsRequest();
-                List<Document> docs = request.makeRequest(allDocsHandler);
+
+                RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
+                GetAllDocumentsRequest request = (GetAllDocumentsRequest) docFactory.getAllRequest();
+                List<Document> docs = request.makeRequest(allDocsHandler, null);
 
                 if (docs.size() > 0) {
                     DocumentListDisplayUi listDisplayUi = new DocumentListDisplayUi(docs);
@@ -131,7 +136,7 @@ public class FileManagementUi extends Ui {
     private void prepareUi() {
         getFrame().setTitle("File Managment");
         getFrame().setSize(500, 300);
-        getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         getFrame().setLocationRelativeTo(null);
         getFrame().setLayout(new GridLayout(3, 1));
         getFrame().setResizable(false);

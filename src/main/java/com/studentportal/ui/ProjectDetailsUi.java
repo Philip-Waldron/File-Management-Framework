@@ -2,8 +2,8 @@ package com.studentportal.ui;
 
 import com.studentportal.assignments.AssignmentHelper;
 import com.studentportal.assignments.ProjectAssignment;
-import com.studentportal.http.CreateProjectRequest;
-import com.studentportal.http.RequestHandler;
+import com.studentportal.http.*;
+import com.studentportal.http.assignments.SaveProjectRequest;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
@@ -60,8 +60,10 @@ public class ProjectDetailsUi extends Ui {
                     } else {
                         assignment.setName(newName);
                         String json = AssignmentHelper.convertProjectAssignmentToJson(assignment);
-                        CreateProjectRequest request = new CreateProjectRequest(json);
-                        request.makeRequest(createHandler);
+
+                        RequestAbstractFactory projectFactory = RequestFactoryProducer.getFactory(RequestChoice.PROJECT);
+                        SaveProjectRequest request = (SaveProjectRequest) projectFactory.saveRequest();
+                        request.makeRequest(createHandler, json);
                     }
                 } else {
                     JOptionPane.showMessageDialog(getFrame(), e.getMessage());
@@ -124,8 +126,9 @@ public class ProjectDetailsUi extends Ui {
                     assignment = new ProjectAssignment(0, name, lecturerId, studentId, startDate, endDate,
                             specification);
                     String json = AssignmentHelper.convertProjectAssignmentToJson(assignment);
-                    CreateProjectRequest request = new CreateProjectRequest(json);
-                    request.makeRequest(createHandler);
+                    RequestAbstractFactory projectFactory = RequestFactoryProducer.getFactory(RequestChoice.PROJECT);
+                    SaveProjectRequest request = (SaveProjectRequest) projectFactory.saveRequest();
+                    request.makeRequest(createHandler, json);
                 }
             }
         });

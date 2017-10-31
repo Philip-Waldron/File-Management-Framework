@@ -20,8 +20,6 @@ import java.util.List;
 import static com.sun.deploy.trace.TraceLevel.UI;
 
 public class RemindersUI extends Ui {
-    private JFrame viewOrdersFrame;
-
     private JButton backButton;
     private JButton fullDetailsButton;
     private JTable reminderTable;
@@ -49,11 +47,11 @@ public class RemindersUI extends Ui {
     }
 
     private void prepareGUI() {
-        viewOrdersFrame = new JFrame("View Orders");
-        viewOrdersFrame.setSize(1000, 400);
-        viewOrdersFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        viewOrdersFrame.setLocationRelativeTo(null);
-        viewOrdersFrame.setLayout(new GridLayout(5, 1));
+        getFrame().setTitle("View Reminders");
+        getFrame().setSize(1000, 400);
+        getFrame().setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        getFrame().setLocationRelativeTo(null);
+        getFrame().setLayout(new GridLayout(5, 1));
 
         reminderTable = new JTable();
         List<Object[]> list = new ArrayList<>();
@@ -94,16 +92,16 @@ public class RemindersUI extends Ui {
                     Reminder reminder = reminders.get(row);
 
                     String data = reminder.getTitle() + "\n" + reminder.getMessage() + "\n" + reminder.getDate().toString();
-                    JOptionPane.showMessageDialog(viewOrdersFrame, data);
+                    JOptionPane.showMessageDialog(getFrame(), data);
                 }
-                else JOptionPane.showMessageDialog(viewOrdersFrame, "Please select a row to see details");
+                else JOptionPane.showMessageDialog(getFrame(), "Please select a row to see details");
 
             }
         });
 
-        viewOrdersFrame.add(tablePanel);
-        viewOrdersFrame.add(fullDetailsButton);
-        viewOrdersFrame.add(backButton);
+        getFrame().add(tablePanel);
+        getFrame().add(fullDetailsButton);
+        getFrame().add(backButton);
 
     }
 
@@ -113,17 +111,17 @@ public class RemindersUI extends Ui {
             JOptionPane.showMessageDialog(null, "You have no reminders at this time");
             returnToHome();
         } else {
-            viewOrdersFrame.setVisible(true);
+            getFrame().setVisible(true);
         }
     }
 
     @Override
     public void hide() {
-        viewOrdersFrame.setVisible(false);
+        getFrame().setVisible(false);
     }
 
     private void returnToHome() {
         //TODO: add return home action
-        hide();
+        close();
     }
 }
