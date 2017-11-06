@@ -17,8 +17,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.sun.deploy.trace.TraceLevel.UI;
-
 public class RemindersUI extends Ui {
     private JButton backButton;
     private JButton fullDetailsButton;
