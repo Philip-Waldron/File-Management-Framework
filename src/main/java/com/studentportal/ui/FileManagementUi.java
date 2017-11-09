@@ -41,11 +41,10 @@ public class FileManagementUi extends Ui {
                                 "Request not sent because nothing was entered");
                     } else {
                         document.setFileName(name);
-                        String json = DocumentHelper.convertDocToJson(document);
 
                         RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
                         SaveDocumentRequest request = (SaveDocumentRequest) docFactory.saveRequest();
-                        request.makeRequest(uploadHandler, json);
+                        request.makeRequest(uploadHandler, document);
                     }
                 } else {
                     JOptionPane.showMessageDialog(getFrame(), e.getMessage());
@@ -66,10 +65,10 @@ public class FileManagementUi extends Ui {
                 if (file != null) {
                     document = Document.createDocFromFile(file);
                     if (document != null) {
-                        String json = DocumentHelper.convertDocToJson(document);
+
                         RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
                         SaveDocumentRequest request = (SaveDocumentRequest) docFactory.saveRequest();
-                        request.makeRequest(uploadHandler, json);
+                        request.makeRequest(uploadHandler, document);
                     }
                 }
             }
