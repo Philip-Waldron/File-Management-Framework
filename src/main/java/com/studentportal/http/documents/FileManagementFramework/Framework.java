@@ -30,6 +30,13 @@ public class Framework {
         postInRequest = new Dispatcher();
     }
 
+    public static Framework getInstance() {
+        if(instance == null) {
+            Framework.instance = new Framework();
+        }
+        return instance;
+    }
+
     public boolean uploadDocument(Document document) {
         return true;
     }
