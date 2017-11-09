@@ -18,9 +18,9 @@ public class QuizAssignment extends Assignment {
         super();
     }
 
-    public QuizAssignment(int id, String name, String lecturerId, String studentId,
-                          Date startDate, Date endDate, List<QuizQuestion> quizQuestions) {
-        super(id, name, lecturerId, studentId, startDate, endDate);
+    public QuizAssignment(int id, String name, int courseId, String courseCode, Date startDate,
+                          Date endDate, List<QuizQuestion> quizQuestions) {
+        super(id, name, courseId, courseCode, startDate, endDate);
         this.quizQuestions = quizQuestions;
     }
 

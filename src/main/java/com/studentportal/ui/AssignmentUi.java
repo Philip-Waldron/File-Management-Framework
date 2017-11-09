@@ -1,9 +1,18 @@
 package com.studentportal.ui;
 
+import com.studentportal.courses.Course;
+import com.studentportal.http.RequestChoice;
+import com.studentportal.http.RequestFactoryProducer;
+import com.studentportal.http.RequestHandler;
+import com.studentportal.http.courses.CourseRequestFactory;
+import com.studentportal.http.courses.GetAllCoursesByTeacherRequest;
+import com.studentportal.user.Teacher;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class AssignmentUi extends Ui {
 
@@ -12,8 +21,23 @@ public class AssignmentUi extends Ui {
     private JButton setAssignmentBtn;
     private GridBagConstraints c;
 
+    private Teacher teacher;
 
-    public AssignmentUi() {
+    private RequestHandler getAllHandler;
+
+    public AssignmentUi(Teacher teacher) {
+        this.teacher = teacher;
+        this.getAllHandler = new RequestHandler() {
+            @Override
+            public void onSuccess() {
+                System.out.println("Courses retrieved");
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                JOptionPane.showMessageDialog(getFrame(), e.getMessage());
+            }
+        };
         initComponents();
         setComponentsInPane();
         prepareUi();
@@ -27,12 +51,30 @@ public class AssignmentUi extends Ui {
                 int choice = getAssignmentChoice();
                 if (choice == 0) {
                     // quiz
-                    QuizDetailsUi ui = new QuizDetailsUi();
-                    ui.show();
+                    CourseRequestFactory courseFactory = (CourseRequestFactory) RequestFactoryProducer.getFactory(
+                            RequestChoice.COURSE);
+                    GetAllCoursesByTeacherRequest request = (GetAllCoursesByTeacherRequest) courseFactory
+                            .getAllByTeacher();
+                    List<Course> cList = request.makeRequest(getAllHandler, teacher.getUserNum());
+                    if (cList.size() > 0) {
+                        QuizDetailsUi ui = new QuizDetailsUi(cList);
+                        ui.show();
+                    } else {
+                        JOptionPane.showMessageDialog(getFrame(), "You have no courses belonging to you");
+                    }
                 } else if (choice == 1) {
                     // project
-                    ProjectDetailsUi ui = new ProjectDetailsUi();
-                    ui.show();
+                    CourseRequestFactory courseFactory = (CourseRequestFactory) RequestFactoryProducer.getFactory(
+                            RequestChoice.COURSE);
+                    GetAllCoursesByTeacherRequest request = (GetAllCoursesByTeacherRequest) courseFactory
+                            .getAllByTeacher();
+                    List<Course> cList = request.makeRequest(getAllHandler, teacher.getUserNum());
+                    if (cList.size() > 0) {
+                        ProjectDetailsUi ui = new ProjectDetailsUi(cList);
+                        ui.show();
+                    } else {
+                        JOptionPane.showMessageDialog(getFrame(), "You have no courses belonging to you");
+                    }
                 } else {
                     // do nothing
                 }

@@ -19,8 +19,9 @@ public class AuthApi {
     public User signIn(String json) {
         SignInCredentials credentials = AuthHelper.extractSignInCredentialsFromJson(json);
         SignInCommand cmd = new SignInCommand(credentials, uService);
-        User user = cmd.execute();
-        return user;
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        return (User) apiControl.doWork();
     }
 
     @POST
@@ -28,7 +29,9 @@ public class AuthApi {
     public void signUp(String json) {
         SignUpDetails details = AuthHelper.extractSignUpDetailsFromJson(json);
         SignUpCommand cmd = new SignUpCommand(details, uService);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 
     @POST
@@ -36,14 +39,18 @@ public class AuthApi {
     public void signUpConfirm(String json) {
         SignUpConfirmDetails confirmDetails = AuthHelper.extractSignUpConfirmDetailsFromJson(json);
         SignUpConfirmCommand cmd = new SignUpConfirmCommand(confirmDetails);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 
     @GET
     @Path("/forgotPassword/{email}")
     public void forgotPassword(@PathParam("email") String email) {
         ForgotPasswordCommand cmd = new ForgotPasswordCommand(email);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 
     @POST
@@ -52,6 +59,8 @@ public class AuthApi {
         ForgotPasswordConfirmDetails confirmDetails = AuthHelper
                 .extractPasswordConfirmDetailsFromJson(json);
         ForgotPasswordConfirmCommand cmd = new ForgotPasswordConfirmCommand(confirmDetails);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 }

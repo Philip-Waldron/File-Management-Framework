@@ -1,16 +1,14 @@
 package com.studentportal.api;
 
-import com.studentportal.assignments.AssignmentHelper;
-import com.studentportal.assignments.ProjectAssignment;
-import com.studentportal.assignments.QuizAssignment;
+import com.studentportal.assignments.*;
 import com.studentportal.commands.CreateAssignmentCommand;
+import com.studentportal.commands.GetAssignmentsByCourseIdCommand;
+import com.studentportal.commands.SubmitCompletedQuizCommand;
 import com.studentportal.hibernate.AssignmentService;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/assignment")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -21,16 +19,43 @@ public class AssignmentApi {
     @POST
     @Path("/project/create")
     public void createProject(String json) {
-        ProjectAssignment a = AssignmentHelper.extractProjectFromJson(json);
+        ProjectAssignment a = (ProjectAssignment) AssignmentHelper.extractAssignmentFromJson(json);
         CreateAssignmentCommand cmd = new CreateAssignmentCommand(a, aService);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 
     @POST
     @Path("/quiz/create")
     public void createQuiz(String json) {
-        QuizAssignment a = AssignmentHelper.extractQuizFromJson(json);
+        QuizAssignment a = (QuizAssignment) AssignmentHelper.extractAssignmentFromJson(json);
         CreateAssignmentCommand cmd = new CreateAssignmentCommand(a, aService);
-        cmd.execute();
+
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
+    }
+
+    @GET
+    @Path("/by/{courseId}")
+    public List<Assignment> getAssignmentsByCourseId(@PathParam("courseId") int courseId) {
+        GetAssignmentsByCourseIdCommand cmd = new GetAssignmentsByCourseIdCommand(aService, courseId);
+
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        return (List<Assignment>) apiControl.doWork();
+    }
+
+    @POST
+    @Path("/complete/quiz")
+    public String completeQuiz(String json) {
+        CompletedQuiz compQuiz = AssignmentHelper.extractCompletedQuizFromJson(json);
+        QuizGrader grader = new QuizGrader(aService, compQuiz);
+        SubmitCompletedQuizCommand cmd = new SubmitCompletedQuizCommand(grader, aService);
+
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        return (String) apiControl.doWork();
     }
 }

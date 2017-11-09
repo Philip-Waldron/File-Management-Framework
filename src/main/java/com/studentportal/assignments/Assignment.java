@@ -1,27 +1,39 @@
 package com.studentportal.assignments;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.studentportal.user.Admin;
+import com.studentportal.user.Student;
+import com.studentportal.user.Teacher;
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "assignments")
 @Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = QuizAssignment.class, name = "QuizAssignment"),
+        @JsonSubTypes.Type(value = ProjectAssignment.class, name = "ProjectAssignment")}
+)
 public abstract class Assignment {
     private int id;
     private String name;
-    private String lecturerId;
-    private String studentId;
+    private int courseId;
+    private String courseCode;
     private Date startDate;
     private Date endDate;
 
     public Assignment() {}
 
-    public Assignment(int id, String name, String lecturerId,
-                      String studentId, Date startDate, Date endDate) {
+    public Assignment(int id, String name, int courseId, String courseCode, Date startDate, Date endDate) {
         this.id = id;
         this.name = name;
-        this.lecturerId = lecturerId;
-        this.studentId = studentId;
+        this.courseId = courseId;
+        this.courseCode = courseCode;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -46,22 +58,22 @@ public abstract class Assignment {
         this.name = name;
     }
 
-    @Column(name = "lecturerId")
-    public String getLecturerId() {
-        return lecturerId;
+    @Column(name = "courseId")
+    public int getCourseId() {
+        return courseId;
     }
 
-    public void setLecturerId(String lecturerId) {
-        this.lecturerId = lecturerId;
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
     }
 
-    @Column(name = "studentId")
-    public String getStudentId() {
-        return studentId;
+    @Column(name = "courseCode")
+    public String getCourseCode() {
+        return courseCode;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 
     @Temporal(value = TemporalType.DATE)
@@ -89,8 +101,7 @@ public abstract class Assignment {
         return "Assignment{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lecturerId='" + lecturerId + '\'' +
-                ", studentId='" + studentId + '\'' +
+                ", courseId='" + courseId + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 '}';

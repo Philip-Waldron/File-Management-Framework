@@ -27,7 +27,9 @@ public class CourseApi {
         Course course = CourseHelper.extractCourseFromJson(json);
         SaveCourseCommand cmd = new SaveCourseCommand(cService,
                 uService, course);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 
     @GET
@@ -35,7 +37,9 @@ public class CourseApi {
     public List<Course> getAllByTeacher(@PathParam("teacherId") int teacherId) {
         GetAllCoursesByTeacherCommand cmd = new GetAllCoursesByTeacherCommand(
                 cService, teacherId);
-        return cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        return (List<Course>) apiControl.doWork();
     }
 
     @PUT
@@ -44,7 +48,9 @@ public class CourseApi {
                                    @PathParam("studentId") int studentId) {
         AddStudentToCourseCommand cmd = new AddStudentToCourseCommand(
                 cService, uService, courseCode, studentId);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 
     @PUT
@@ -53,6 +59,8 @@ public class CourseApi {
                                    @PathParam("studentId") int studentId) {
         RemoveStudentFromCourseCommand cmd = new RemoveStudentFromCourseCommand(
                 cService, uService, courseCode, studentId);
-        cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        apiControl.doWork();
     }
 }

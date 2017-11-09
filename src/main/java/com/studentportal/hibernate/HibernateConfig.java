@@ -6,6 +6,7 @@ import com.studentportal.assignments.QuizAssignment;
 import com.studentportal.assignments.QuizQuestion;
 import com.studentportal.courses.Course;
 import com.studentportal.file_management.Document;
+import com.studentportal.file_management.StudentProjectDocument;
 import com.studentportal.user.Admin;
 import com.studentportal.user.Student;
 import com.studentportal.user.Teacher;
@@ -32,6 +33,7 @@ public class HibernateConfig {
         conf.addAnnotatedClass(Teacher.class);
         conf.addAnnotatedClass(User.class);
         conf.addAnnotatedClass(Admin.class);
+        conf.addAnnotatedClass(StudentProjectDocument.class);
 
         // props
         conf.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");

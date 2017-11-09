@@ -14,6 +14,10 @@ public class ProjectRequestFactory extends RequestAbstractFactory {
         return null;
     }
 
+    public HttpRequest getAllByCourseId() {
+        return new GetAssignmentsByCourseIdRequest();
+    }
+
     @Override
     public HttpRequest saveRequest() {
         return new SaveProjectRequest();

@@ -1,7 +1,10 @@
 package com.studentportal.core;
 
+import com.studentportal.api.AssignmentApi;
 import com.studentportal.api.AuthApi;
 import com.studentportal.api.CourseApi;
+import com.studentportal.assignments.AssignmentHelper;
+import com.studentportal.assignments.CompletedQuiz;
 import com.studentportal.courses.Course;
 import com.studentportal.courses.CourseHelper;
 import com.studentportal.hibernate.UserService;
@@ -15,6 +18,10 @@ import com.studentportal.ui.LoginUI;
 import com.studentportal.user.Admin;
 import com.studentportal.user.User;
 import com.studentportal.user.UserRole;
+import jdk.nashorn.internal.ir.Assignment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Client {
 
@@ -29,9 +36,9 @@ public class Client {
     }
 
     private static void signUpAdmin() {
-        String email = "your-email";
-        String given_name = "Your";
-        String family_name = "Name";
+        String email = "12170321@studentmail.ul.ie";
+        String given_name = "David";
+        String family_name = "Nkanga";
         UserRole userRole = UserRole.ADMIN;
 
         SignUpDetails dets = new SignUpDetails(email, given_name, family_name, userRole);
@@ -41,8 +48,8 @@ public class Client {
     }
 
     private static void assignmentUi() {
-        AssignmentUi ui = new AssignmentUi();
-        ui.show();
+//        AssignmentUi ui = new AssignmentUi();
+//        ui.show();
     }
 
     private static void fileManagementUi() {

@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "quiz_questions")
-public class QuizQuestion {
+public class QuizQuestion implements Element {
     private int quiz_id;
     private String question;
     private String choices;
@@ -82,5 +82,10 @@ public class QuizQuestion {
                 ", choices='" + choices + '\'' +
                 ", answer=" + answer +
                 '}';
+    }
+
+    @Override
+    public String accept(Visitor v) {
+        return v.visit(this);
     }
 }

@@ -22,6 +22,8 @@ public class UserApi {
                                             String userRole) {
         GetAllUsersByRoleCommand cmd = new GetAllUsersByRoleCommand(
                 uService, UserRole.valueOf(userRole));
-        return cmd.execute();
+        ApiControl apiControl = new ApiControl();
+        apiControl.setCommand(cmd);
+        return (List<User>) apiControl.doWork();
     }
 }

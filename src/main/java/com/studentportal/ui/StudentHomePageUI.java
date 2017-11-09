@@ -1,5 +1,6 @@
 package com.studentportal.ui;
 
+import com.studentportal.user.Student;
 import com.studentportal.user.User;
 
 import javax.swing.*;
@@ -12,9 +13,11 @@ public class StudentHomePageUI extends HomePageUi {
     private JPanel pane;
     private JButton remindersButton;
     private JButton assignmentsBtn;
+    private Student student;
 
-    public StudentHomePageUI(User user) {
-        super(user);
+    public StudentHomePageUI(Student student) {
+        super(student);
+        this.student = student;
         initComponents();
         setComponentsInPane();
         prepareGui();
@@ -22,20 +25,15 @@ public class StudentHomePageUI extends HomePageUi {
 
     private void initComponents() {
         remindersButton = new JButton("Reminders");
-        remindersButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RemindersUI remindersUI = new RemindersUI();
-                remindersUI.show();
-            }
+        remindersButton.addActionListener(e -> {
+            RemindersUI remindersUI = new RemindersUI();
+            remindersUI.show();
         });
 
         assignmentsBtn = new JButton("Assignments");
-        assignmentsBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO
-            }
+        assignmentsBtn.addActionListener(e -> {
+            StudentAssignmentsUi ui = new StudentAssignmentsUi(student);
+            ui.show();
         });
     }
 

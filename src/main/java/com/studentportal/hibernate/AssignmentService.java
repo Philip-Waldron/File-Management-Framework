@@ -2,6 +2,7 @@ package com.studentportal.hibernate;
 
 import com.studentportal.assignments.Assignment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AssignmentService {
@@ -21,6 +22,16 @@ public class AssignmentService {
             }
         }
         return assignment;
+    }
+
+    public List<Assignment> findAllByCourseId(int id) {
+        List<Assignment> aList = new ArrayList<>();
+        for (Assignment a : findAll()) {
+            if (a.getCourseId() == id) {
+                aList.add(a);
+            }
+        }
+        return aList;
     }
 
     public Assignment findById(int id) {

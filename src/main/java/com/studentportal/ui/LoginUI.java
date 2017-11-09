@@ -9,6 +9,7 @@ import com.studentportal.security.auth.AuthHelper;
 import com.studentportal.security.auth.ForgotPasswordConfirmDetails;
 import com.studentportal.security.auth.SignInCredentials;
 import com.studentportal.security.auth.SignUpConfirmDetails;
+import com.studentportal.user.Student;
 import com.studentportal.user.User;
 import com.studentportal.user.UserRole;
 import org.apache.commons.lang3.StringUtils;
@@ -154,7 +155,7 @@ public class LoginUI extends Ui {
                             home.show();
                             close();
                         } else if (user.getUserRole().equals(UserRole.STUDENT)) {
-                            StudentHomePageUI home = new StudentHomePageUI(user);
+                            StudentHomePageUI home = new StudentHomePageUI((Student) user);
                             home.show();
                             close();
                         }

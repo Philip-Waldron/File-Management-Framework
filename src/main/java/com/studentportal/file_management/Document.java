@@ -1,5 +1,11 @@
 package com.studentportal.file_management;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.studentportal.assignments.ProjectAssignment;
+import com.studentportal.assignments.QuizAssignment;
+
 import javax.persistence.*;
 import java.io.File;
 import java.util.Calendar;
@@ -9,6 +15,12 @@ import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "documents")
+@Inheritance(strategy = InheritanceType.JOINED)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = StudentProjectDocument.class, name = "StudentProjectDocument")}
+)
 public class Document {
 
     private int id;
@@ -19,9 +31,9 @@ public class Document {
     private Date created;
     private Date modified;
 
-    private Document() { }
+    protected Document() { }
 
-    private Document(int id, final File file) {
+    protected Document(int id, final File file) {
         this.id = id;
         this.bytes = DocumentHelper.extractBytesFromFile(file);
         this.fileName = DocumentHelper.extractFilename(file);

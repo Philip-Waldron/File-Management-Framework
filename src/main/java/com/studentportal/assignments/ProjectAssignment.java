@@ -16,9 +16,9 @@ public class ProjectAssignment extends Assignment {
         super();
     }
 
-    public ProjectAssignment(int id, String name, String lecturerId, String studentId,
+    public ProjectAssignment(int id, String name, int courseId, String courseCode,
                              Date startDate, Date endDate, String specification) {
-        super(id, name, lecturerId, studentId, startDate, endDate);
+        super(id, name, courseId, courseCode, startDate, endDate);
         this.specification = specification;
     }
 

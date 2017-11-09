@@ -2,6 +2,7 @@ package com.studentportal.ui;
 
 import com.studentportal.assignments.AssignmentHelper;
 import com.studentportal.assignments.ProjectAssignment;
+import com.studentportal.courses.Course;
 import com.studentportal.http.*;
 import com.studentportal.http.assignments.SaveProjectRequest;
 import org.apache.commons.lang3.StringUtils;
@@ -13,25 +14,24 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class ProjectDetailsUi extends Ui {
 
     private JPanel pane;
 
-    JLabel nameLbl;
-    JTextField nameTxt;
+    private JLabel nameLbl;
+    private JTextField nameTxt;
 
-    JLabel lecturerLbl;
-    JTextField lecturerTxt;
+    private JLabel courseCodeLbl;
+    private JComboBox courseCmBx;
+    private String[] courseCodeArr;
 
-    JLabel studentLbl;
-    JTextField studentTxt;
+    private JLabel startDateLbl;
+    private JTextField startDateTxt;
 
-    JLabel startDateLbl;
-    JTextField startDateTxt;
-
-    JLabel endDateLbl;
-    JTextField endDateTxt;
+    private JLabel endDateLbl;
+    private JTextField endDateTxt;
 
     private JLabel specificationLbl;
     private JTextArea specificationTxtArea;
@@ -42,7 +42,11 @@ public class ProjectDetailsUi extends Ui {
     private ProjectAssignment assignment;
     private RequestHandler createHandler;
 
-    public ProjectDetailsUi() {
+    private List<Course> cList;
+
+    public ProjectDetailsUi(List<Course> cList) {
+        this.cList = cList;
+        this.courseCodeArr = new String[cList.size()];
         this.createHandler = new RequestHandler() {
             @Override
             public void onSuccess() {
@@ -59,7 +63,7 @@ public class ProjectDetailsUi extends Ui {
                                 "Request not sent because nothing was entered");
                     } else {
                         assignment.setName(newName);
-                        String json = AssignmentHelper.convertProjectAssignmentToJson(assignment);
+                        String json = AssignmentHelper.convertAssignmentToJson(assignment);
 
                         RequestAbstractFactory projectFactory = RequestFactoryProducer.getFactory(RequestChoice.PROJECT);
                         SaveProjectRequest request = (SaveProjectRequest) projectFactory.saveRequest();
@@ -70,18 +74,24 @@ public class ProjectDetailsUi extends Ui {
                 }
             }
         };
+        addCourseCodesToArray();
         initComponents();
         setComponentsInPane();
         prepareUi();
     }
 
+    private void addCourseCodesToArray() {
+        for (int i = 0; i < cList.size(); i++) {
+            String courseCode = cList.get(i).getCourseCode();
+            courseCodeArr[i] = courseCode;
+        }
+    }
+
     private void initComponents() {
         nameLbl = new JLabel("Name:");
         nameTxt = new JTextField();
-        lecturerLbl = new JLabel("Lecturer ID");
-        lecturerTxt = new JTextField();
-        studentLbl = new JLabel("Student ID");
-        studentTxt = new JTextField();
+        courseCodeLbl = new JLabel("Course Code: ");
+        courseCmBx = new JComboBox(courseCodeArr);
         startDateLbl = new JLabel("Start Date(dd/MM/yyyy)");
         startDateTxt = new JTextField();
         endDateLbl = new JLabel("End Date(dd/MM/yyyy)");
@@ -102,36 +112,49 @@ public class ProjectDetailsUi extends Ui {
         createBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String name = nameTxt.getText();
-                String lecturerId = lecturerTxt.getText();
-                String studentId = studentTxt.getText();
-                String startDateStr = startDateTxt.getText();
-                String endDateStr = endDateTxt.getText();
-                String specification = specificationTxtArea.getText();
-
-                if (StringUtils.isBlank(name) || StringUtils.isBlank(lecturerId) ||
-                        StringUtils.isBlank(studentId) || StringUtils.isBlank(startDateStr) ||
-                        StringUtils.isBlank(endDateStr) || StringUtils.isBlank(specification)) {
-                    JOptionPane.showMessageDialog(getFrame(), "No fields can be empty");
+                String courseCode = courseCmBx.getSelectedItem().toString();
+                if (StringUtils.isBlank(courseCode)) {
+                    JOptionPane.showMessageDialog(getFrame(), "No course code selected");
                 } else {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                    Date startDate = null;
-                    Date endDate = null;
-                    try {
-                        startDate = sdf.parse(startDateStr);
-                        endDate = sdf.parse(endDateStr);
-                    } catch (ParseException e1) {
-                        e1.printStackTrace();
+                    String name = nameTxt.getText();
+                    int courseId = getCourseId(courseCode);
+                    String startDateStr = startDateTxt.getText();
+                    String endDateStr = endDateTxt.getText();
+                    String specification = specificationTxtArea.getText();
+
+                    if (StringUtils.isBlank(name) || StringUtils.isBlank(startDateStr) ||
+                            StringUtils.isBlank(endDateStr) || StringUtils.isBlank(specification)) {
+                        JOptionPane.showMessageDialog(getFrame(), "No fields can be empty");
+                    } else {
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                        Date startDate = null;
+                        Date endDate = null;
+                        try {
+                            startDate = sdf.parse(startDateStr);
+                            endDate = sdf.parse(endDateStr);
+                        } catch (ParseException e1) {
+                            e1.printStackTrace();
+                        }
+                        assignment = new ProjectAssignment(0, name, courseId, courseCode, startDate, endDate,
+                                specification);
+                        String json = AssignmentHelper.convertAssignmentToJson(assignment);
+                        RequestAbstractFactory projectFactory = RequestFactoryProducer.getFactory(RequestChoice.PROJECT);
+                        SaveProjectRequest request = (SaveProjectRequest) projectFactory.saveRequest();
+                        request.makeRequest(createHandler, json);
                     }
-                    assignment = new ProjectAssignment(0, name, lecturerId, studentId, startDate, endDate,
-                            specification);
-                    String json = AssignmentHelper.convertProjectAssignmentToJson(assignment);
-                    RequestAbstractFactory projectFactory = RequestFactoryProducer.getFactory(RequestChoice.PROJECT);
-                    SaveProjectRequest request = (SaveProjectRequest) projectFactory.saveRequest();
-                    request.makeRequest(createHandler, json);
                 }
             }
         });
+    }
+
+    private int getCourseId(String courseCode) {
+        int id = -1;
+        for (Course c : cList) {
+            if (c.getCourseCode().equals(courseCode)) {
+                id = c.getId();
+            }
+        }
+        return id;
     }
 
     private void setComponentsInPane() {
@@ -155,66 +178,55 @@ public class ProjectDetailsUi extends Ui {
         c.gridx = 0;
         c.gridy = 1;
         c.weightx = 0.5;
-        pane.add(lecturerLbl, c);
+        pane.add(courseCodeLbl, c);
 
         c.gridx = 1;
         c.gridy = 1;
         c.weightx = 0.5;
-        pane.add(lecturerTxt, c);
-
-        // student
-        c.gridx = 0;
-        c.gridy = 2;
-        c.weightx = 0.5;
-        pane.add(studentLbl, c);
-
-        c.gridx = 1;
-        c.gridy = 2;
-        c.weightx = 0.5;
-        pane.add(studentTxt, c);
+        pane.add(courseCmBx, c);
 
         // start date
         c.gridx = 0;
-        c.gridy = 3;
+        c.gridy = 2;
         c.weightx = 0.5;
         pane.add(startDateLbl, c);
 
         c.gridx = 1;
-        c.gridy = 3;
+        c.gridy = 2;
         c.weightx = 0.5;
         pane.add(startDateTxt, c);
 
         // end date
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 3;
         c.weightx = 0.5;
         pane.add(endDateLbl, c);
 
         c.gridx = 1;
-        c.gridy = 4;
+        c.gridy = 3;
         c.weightx = 0.5;
         pane.add(endDateTxt, c);
 
         // cancel button
         c.gridx = 0;
-        c.gridy = 7;
+        c.gridy = 6;
         c.weightx = 0.5;
         pane.add(cancelBtn, c);
 
         // done button
         c.gridx = 1;
-        c.gridy = 7;
+        c.gridy = 6;
         c.weightx = 0.5;
         pane.add(createBtn, c);
 
         // specification
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy = 4;
         c.weightx = 0.5;
         pane.add(specificationLbl, c);
 
         c.gridx = 0;
-        c.gridy = 6;
+        c.gridy = 5;
         c.weightx = 0.0;
         c.gridwidth = 2;
         c.ipady = 20;

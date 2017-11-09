@@ -49,7 +49,7 @@ public class TeacherHomePageUI extends HomePageUi {
         assignmentsBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AssignmentUi assignmentUi = new AssignmentUi();
+                AssignmentUi assignmentUi = new AssignmentUi((Teacher) getUser());
                 assignmentUi.show();
             }
         });

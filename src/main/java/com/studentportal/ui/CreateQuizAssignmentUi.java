@@ -30,8 +30,8 @@ public class CreateQuizAssignmentUi extends Ui {
     private DefaultTableModel qModel;
 
     private String name;
-    private String lecturerId;
-    private String studentId;
+    private int courseId;
+    private String courseCode;
     private Date startDate;
     private Date endDate;
 
@@ -39,11 +39,10 @@ public class CreateQuizAssignmentUi extends Ui {
 
     private RequestHandler createHandler;
 
-    public CreateQuizAssignmentUi(String name, String lecturerId, String studentId,
-                                  Date startDate, Date endDate) {
+    public CreateQuizAssignmentUi(String name, int courseId, String courseCode, Date startDate, Date endDate) {
         this.name = name;
-        this.lecturerId = lecturerId;
-        this.studentId = studentId;
+        this.courseId = courseId;
+        this.courseCode = courseCode;
         this.startDate = startDate;
         this.endDate = endDate;
         this.createHandler = new RequestHandler() {
@@ -62,7 +61,7 @@ public class CreateQuizAssignmentUi extends Ui {
                                 "Request not sent because nothing was entered");
                     } else {
                         assignment.setName(newName);
-                        String json = AssignmentHelper.convertQuizAssignmentToJson(assignment);
+                        String json = AssignmentHelper.convertAssignmentToJson(assignment);
 
                         RequestAbstractFactory quizReqFactory = RequestFactoryProducer
                                 .getFactory(RequestChoice.QUIZ);
@@ -142,12 +141,12 @@ public class CreateQuizAssignmentUi extends Ui {
             public void actionPerformed(ActionEvent e) {
                 int rowCount = qTable.getRowCount();
                 if (rowCount > 0) {
-                    assignment = new QuizAssignment(0, name, studentId, lecturerId,
+                    assignment = new QuizAssignment(0, name, courseId, courseCode,
                             startDate, endDate, null);
                     List<QuizQuestion> quizList = getQuestionsFromRows(rowCount, assignment);
                     assignment.setQuizQuestions(quizList);
 
-                    String json = AssignmentHelper.convertQuizAssignmentToJson(assignment);
+                    String json = AssignmentHelper.convertAssignmentToJson(assignment);
                     RequestAbstractFactory quizReqFactory = RequestFactoryProducer
                             .getFactory(RequestChoice.QUIZ);
                     SaveQuizRequest request = (SaveQuizRequest) quizReqFactory.saveRequest();
