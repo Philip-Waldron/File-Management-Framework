@@ -15,11 +15,11 @@ import org.apache.http.impl.client.HttpClients;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class SaveDocumentRequest implements HttpRequest<Void, Document>, Interceptable {
+public class SaveDocumentRequest implements HttpRequest<Void, String> {
     public SaveDocumentRequest() {}
 
     @Override
-    public Void makeRequest(RequestHandler callback, Document document) {
+    public Void makeRequest(RequestHandler callback, String json) {
         if (callback == null) {
             System.out.println("callback is null");
         } else {
@@ -43,7 +43,6 @@ public class SaveDocumentRequest implements HttpRequest<Void, Document>, Interce
                     }
                 };
 
-                String json = DocumentHelper.convertDocToJson(document);
                 StringEntity entity = new StringEntity(json);
                 httpPost.addHeader("content-type", "application/json");
                 httpPost.setEntity(entity);
@@ -63,15 +62,5 @@ public class SaveDocumentRequest implements HttpRequest<Void, Document>, Interce
             }
         }
         return null;
-    }
-
-    @Override
-    public void preMarshall() {
-
-    }
-
-    @Override
-    public void postMarshall() {
-
     }
 }

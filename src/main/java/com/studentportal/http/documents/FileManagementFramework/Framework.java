@@ -1,5 +1,12 @@
 package com.studentportal.http.documents.FileManagementFramework;
 
+import com.studentportal.file_management.Document;
+import com.studentportal.file_management.DocumentHelper;
+import com.studentportal.http.RequestAbstractFactory;
+import com.studentportal.http.RequestChoice;
+import com.studentportal.http.RequestFactoryProducer;
+import com.studentportal.http.RequestHandler;
+import com.studentportal.http.documents.SaveDocumentRequest;
 import com.studentportal.user.UserType;
 
 public class Framework {
@@ -11,23 +18,35 @@ public class Framework {
     private UserType userType;
 
 
-    public Dispatcher pre_out_request;
-    public Dispatcher post_out_request;
-    public Dispatcher pre_in_request;
-    public Dispatcher post_in_request;
+    public Dispatcher preOutRequest;
+    public Dispatcher postOutRequest;
+    public Dispatcher preInRequest;
+    public Dispatcher postInRequest;
 
     private Framework() {
-        pre_out_request = new Dispatcher();
-        post_out_request = new Dispatcher();
-        pre_in_request = new Dispatcher();
-        post_in_request = new Dispatcher();
+        preOutRequest = new Dispatcher();
+        postOutRequest = new Dispatcher();
+        preInRequest = new Dispatcher();
+        postInRequest = new Dispatcher();
     }
 
-    public boolean uploadDocument() {
+    public boolean uploadDocument(Document document) {
         return true;
     }
 
     public boolean downloadDocument() {
         return true;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public UserType getUserType() {
+        return userType;
     }
 }
