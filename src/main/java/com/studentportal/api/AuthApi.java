@@ -1,12 +1,15 @@
 package com.studentportal.api;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.studentportal.commands.*;
 import com.studentportal.hibernate.UserService;
 import com.studentportal.security.auth.*;
+import com.studentportal.security.aws.AwsCognito;
 import com.studentportal.user.User;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 
 @Path("/auth")
 @Consumes(MediaType.APPLICATION_JSON)

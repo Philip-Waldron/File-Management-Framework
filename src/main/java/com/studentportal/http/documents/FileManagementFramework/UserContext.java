@@ -14,5 +14,7 @@ public class UserContext extends Context {
 
     public String getUserEmail() { return f.getUserEmail(); }
 
+    public void setUserEmail(String userEmail) { f.setUserEmail(userEmail); }
+
     public UserType getUserType() { return f.getUserType(); }
 }

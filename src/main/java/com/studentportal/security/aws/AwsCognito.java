@@ -5,6 +5,7 @@ import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProviderClientBuilder;
+import com.amazonaws.services.cognitoidp.model.AdminGetUserRequest;
 import com.amazonaws.services.cognitoidp.model.AuthenticationResultType;
 import com.studentportal.security.auth.Constants;
 import org.apache.commons.lang3.StringUtils;
@@ -32,6 +33,7 @@ public class AwsCognito {
         this.cognitoPoolId = "eu-west-1_7seGWwwII";
         this.cognitoClientId = "3sta5gq2elcu49s0u5mrk77bnq";
         this.tokenCache = new CredentialsCache(1000);
+
     }
 
     public static AwsCognito getInstance() {

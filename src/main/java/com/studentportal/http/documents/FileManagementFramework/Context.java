@@ -1,7 +1,7 @@
 package com.studentportal.http.documents.FileManagementFramework;
 
 
-public class Context {
+public abstract class Context {
     Framework f;
 
     Context(Framework f) {
