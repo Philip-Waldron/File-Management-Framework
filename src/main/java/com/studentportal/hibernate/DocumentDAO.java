@@ -14,7 +14,8 @@ public class DocumentDAO implements GenericDAO<Document, Integer> {
     private Session currentSession;
     private Transaction currentTransaction;
 
-    public DocumentDAO() {}
+    public DocumentDAO() {
+    }
 
     @Override
     public Document findById(Integer id) {
@@ -51,7 +52,7 @@ public class DocumentDAO implements GenericDAO<Document, Integer> {
     @Override
     public void deleteAll() {
         List<Document> docs = findAll();
-        for(Document doc : docs) {
+        for (Document doc : docs) {
             delete(doc);
         }
     }

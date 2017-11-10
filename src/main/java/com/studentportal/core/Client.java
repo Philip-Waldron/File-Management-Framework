@@ -5,6 +5,7 @@ import com.studentportal.api.AuthApi;
 import com.studentportal.api.CourseApi;
 import com.studentportal.assignments.AssignmentHelper;
 import com.studentportal.assignments.CompletedQuiz;
+import com.studentportal.commands.SignInCommand;
 import com.studentportal.courses.Course;
 import com.studentportal.courses.CourseHelper;
 import com.studentportal.hibernate.UserService;
@@ -28,6 +29,7 @@ public class Client {
     public static void main(String[] args) {
         login();
 //        signUpAdmin();
+
     }
 
     private static void login() {

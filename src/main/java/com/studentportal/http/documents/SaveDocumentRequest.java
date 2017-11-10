@@ -43,6 +43,7 @@ public class SaveDocumentRequest implements HttpRequest<Void, String> {
 
                 StringEntity entity = new StringEntity(json);
                 httpPost.addHeader("content-type", "application/json");
+                httpPost.addHeader("Developer-Token", "This is a test token");
                 httpPost.setEntity(entity);
                 httpClient.execute(httpPost, responseHandler);
             } catch (UnsupportedEncodingException e) {

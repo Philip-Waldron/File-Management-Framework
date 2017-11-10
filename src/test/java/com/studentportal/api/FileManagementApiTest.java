@@ -3,6 +3,7 @@ package com.studentportal.api;
 import com.studentportal.commands.DownloadDocumentCommand;
 import com.studentportal.file_management.Document;
 import com.studentportal.file_management.DocumentHelper;
+import com.studentportal.hibernate.DocumentService;
 import junit.framework.TestCase;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,13 +22,24 @@ import java.io.IOException;
 
 public class FileManagementApiTest extends TestCase {
 
+    FileManagementApi api = new FileManagementApi();
+    DocumentService docService = new DocumentService();
+
     public void setUp() throws Exception {
         super.setUp();
     }
 
     public void testUploadDocument() throws Exception {
+        File file = new File("random2.pdf");
+        Document doc = Document.createDocFromFile(file);
+        String json = DocumentHelper.convertDocToJson(doc);
+        api.uploadDocument(json, null);
+
+        Document savedDoc = docService.findByName(doc.getFileName());
+
+        assertTrue(savedDoc.getFileName().equals(doc.getFileName()));
     }
 
-    public void testDownloadDocument() throws Exception {
-    }
+//    public void testDownloadDocument() throws Exception {
+//    }
 }
