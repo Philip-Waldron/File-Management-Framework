@@ -1,9 +1,9 @@
 package com.studentportal.http.documents;
 
-import com.studentportal.file_management.Document;
-import com.studentportal.file_management.DocumentHelper;
 import com.studentportal.http.HttpRequest;
 import com.studentportal.http.RequestHandler;
+import com.studentportal.http.documents.FileManagementFramework.AdjustableHeaderRequest;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ResponseHandler;
@@ -15,8 +15,9 @@ import org.apache.http.impl.client.HttpClients;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-public class SaveDocumentRequest implements HttpRequest<Void, String> {
+public class SaveDocumentRequest implements HttpRequest<Void, String>, AdjustableHeaderRequest {
     public SaveDocumentRequest() {}
+    HttpPost request;
 
     @Override
     public Void makeRequest(RequestHandler callback, String json) {
@@ -25,7 +26,7 @@ public class SaveDocumentRequest implements HttpRequest<Void, String> {
         } else {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             try {
-                HttpPost httpPost = new HttpPost("http://localhost:9990/file-mgmt/document/upload");
+                request = new HttpPost("http://localhost:9990/file-mgmt/document/upload");
                 ResponseHandler<Void> responseHandler = new ResponseHandler<Void>() {
                     @Override
                     public Void handleResponse(HttpResponse httpResponse) throws ClientProtocolException, IOException {
@@ -44,9 +45,9 @@ public class SaveDocumentRequest implements HttpRequest<Void, String> {
                 };
 
                 StringEntity entity = new StringEntity(json);
-                httpPost.addHeader("content-type", "application/json");
-                httpPost.setEntity(entity);
-                httpClient.execute(httpPost, responseHandler);
+                request.addHeader("content-type", "application/json");
+                request.setEntity(entity);
+                httpClient.execute(request, responseHandler);
             } catch (UnsupportedEncodingException e) {
                 callback.onFailure(e);
             } catch (ClientProtocolException e) {
@@ -62,5 +63,15 @@ public class SaveDocumentRequest implements HttpRequest<Void, String> {
             }
         }
         return null;
+    }
+
+    @Override
+    public void setHeader(String name, String value) {
+        request.setHeader(name, value);
+    }
+
+    @Override
+    public Header[] getHeaders() {
+        return request.getAllHeaders();
     }
 }

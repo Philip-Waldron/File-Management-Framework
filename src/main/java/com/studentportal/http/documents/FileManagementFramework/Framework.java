@@ -1,10 +1,15 @@
 package com.studentportal.http.documents.FileManagementFramework;
 
 import com.studentportal.file_management.Document;
+import com.studentportal.file_management.DocumentHelper;
+import com.studentportal.http.HttpRequest;
+import com.studentportal.http.RequestAbstractFactory;
+import com.studentportal.http.RequestChoice;
+import com.studentportal.http.RequestFactoryProducer;
+import com.studentportal.http.documents.SaveDocumentRequest;
 import com.studentportal.user.LoggedInUserManager;
 import com.studentportal.user.User;
 import com.studentportal.user.UserRole;
-import org.apache.http.HttpRequest;
 
 public class Framework {
 
@@ -15,7 +20,7 @@ public class Framework {
     private String userName;
     private UserRole userRole;
 
-    private HttpRequest activeRequest;
+    private AdjustableHeaderRequest activeRequest;
     private Document activeDocument;
     private boolean requestValidity;
 
@@ -52,9 +57,16 @@ public class Framework {
 
         preMarshallOutDispatcher.dispatch(new SystemContext(this));
 
+        String json = DocumentHelper.convertDocToJson(document);
+        RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
+        SaveDocumentRequest request = (SaveDocumentRequest) docFactory.saveRequest();
 
-
+        this.activeRequest = request;
         postMarshallOutDispatcher.dispatch(new NetworkContext(this));
+
+        request.makeRequest(null, json);
+
+
 
         preMarshallInDispatcher.dispatch(new NetworkContext(this));
 
@@ -86,11 +98,11 @@ public class Framework {
         return userRole;
     }
 
-    public HttpRequest getActiveRequest() {
+    public AdjustableHeaderRequest getActiveRequest() {
         return activeRequest;
     }
 
-    public void setActiveRequest(HttpRequest activeRequest) {
+    public void setActiveRequest(AdjustableHeaderRequest activeRequest) {
         this.activeRequest = activeRequest;
     }
 

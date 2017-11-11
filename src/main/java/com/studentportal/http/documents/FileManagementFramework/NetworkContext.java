@@ -4,13 +4,13 @@ import org.apache.http.HttpRequest;
 
 public class NetworkContext extends Context {
 
-    Framework f;
+    private Framework f;
 
     NetworkContext(Framework f) {
         super(f);
     }
 
-    public HttpRequest getHttpRequest() {
+    public AdjustableHeaderRequest getHttpRequest() {
         return f.getActiveRequest();
     }
 
