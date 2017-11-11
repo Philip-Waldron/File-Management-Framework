@@ -9,11 +9,13 @@ import com.studentportal.file_management.DocumentHelper;
 import com.studentportal.file_management.StudentProjectDocument;
 import com.studentportal.hibernate.DocumentService;
 import com.studentportal.hibernate.UserService;
+import com.studentportal.http.documents.FileManagementFramework.Framework;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -31,7 +33,13 @@ public class FileManagementApi {
     @Path("/document/upload")
     public void uploadDocument(@Context HttpHeaders headers, String json) {
         LOG.info("hit upload api");
+
+        Framework.getInstance().serverReachedPreMarshall(headers);
+
         Document doc = DocumentHelper.extractDocumentFromJson(json);
+
+        Framework.getInstance().serverReachedPostMarshall(doc);
+
         UploadDocumentCommand cmd = new UploadDocumentCommand(doc, docService);
         ApiControl apiControl = new ApiControl();
         apiControl.setCommand(cmd);

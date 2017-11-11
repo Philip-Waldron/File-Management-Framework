@@ -1,29 +1,28 @@
 package com.studentportal.http.documents.FileManagementFramework.Interceptors;
 
+import com.studentportal.http.documents.FileManagementFramework.AdjustableHeaderRequest;
+import com.studentportal.http.documents.FileManagementFramework.InboundNetworkContext;
 import com.studentportal.http.documents.FileManagementFramework.Interceptor;
-import com.studentportal.http.documents.FileManagementFramework.NetworkContext;
-import com.sun.net.httpserver.Headers;
-import org.apache.http.Header;
-import org.apache.http.HttpRequest;
+import com.studentportal.http.documents.FileManagementFramework.OutboundNetworkContext;
+
+import javax.ws.rs.core.HttpHeaders;
 
 
-public class InboundRequestValidationInterceptor implements Interceptor<NetworkContext> {
+public class InboundRequestValidationInterceptor implements Interceptor<InboundNetworkContext> {
     @Override
-    public void notify(NetworkContext context) {
-        HttpRequest request = context.getHttpRequest();
-
+    public void notify(InboundNetworkContext context) {
         boolean validRequest = false;
-        Header[] headers = request.getAllHeaders();
-        for(Header header : headers) {
-            if(header.getName().matches("Validation-Token")) {
-                if(header.getValue().matches("validationToken123!"))
-                    validRequest = true;
-            }
+        HttpHeaders headers = context.getRequestHeaders();
+
+        if(headers.getRequestHeader("Validation-Token").get(0) != null) {
+            if(headers.getRequestHeader("Validation-Token").get(0).matches("validationToken123!"))
+                validRequest = true;
         }
 
         if(!validRequest)
-            System.out.print("Warning! Payload insecure!");
+            System.out.print("Payload validated validation token");
 
-        context.setRequestValidity(validRequest);
+        else System.out.print("Warning! Payload insecure!");
+
     }
 }

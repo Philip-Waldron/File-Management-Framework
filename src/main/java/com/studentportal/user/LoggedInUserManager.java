@@ -10,7 +10,10 @@ public class LoggedInUserManager {
     }
 
     public static LoggedInUserManager getInstance() {
+        if(instance == null)
+            instance = new LoggedInUserManager();
         return instance;
+
     }
 
     public User getLoggedInUser() {

@@ -16,8 +16,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class SaveDocumentRequest implements HttpRequest<Void, String>, AdjustableHeaderRequest {
-    public SaveDocumentRequest() {}
-    HttpPost request;
+    public SaveDocumentRequest() {
+        request = new HttpPost("http://localhost:9990/file-mgmt/document/upload");
+    }
+    private HttpPost request;
 
     @Override
     public Void makeRequest(RequestHandler callback, String json) {
@@ -26,7 +28,6 @@ public class SaveDocumentRequest implements HttpRequest<Void, String>, Adjustabl
         } else {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             try {
-                request = new HttpPost("http://localhost:9990/file-mgmt/document/upload");
                 ResponseHandler<Void> responseHandler = new ResponseHandler<Void>() {
                     @Override
                     public Void handleResponse(HttpResponse httpResponse) throws ClientProtocolException, IOException {

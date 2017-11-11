@@ -2,14 +2,20 @@ package com.studentportal.http.documents.FileManagementFramework;
 
 import com.studentportal.file_management.Document;
 import com.studentportal.file_management.DocumentHelper;
-import com.studentportal.http.HttpRequest;
 import com.studentportal.http.RequestAbstractFactory;
 import com.studentportal.http.RequestChoice;
 import com.studentportal.http.RequestFactoryProducer;
+import com.studentportal.http.RequestHandler;
+import com.studentportal.http.documents.FileManagementFramework.Interceptors.DecryptAndLogInterceptor;
+import com.studentportal.http.documents.FileManagementFramework.Interceptors.InboundRequestValidationInterceptor;
+import com.studentportal.http.documents.FileManagementFramework.Interceptors.OutboundRequestValidationInterceptor;
+import com.studentportal.http.documents.FileManagementFramework.Interceptors.UserEncryptionInterceptor;
 import com.studentportal.http.documents.SaveDocumentRequest;
 import com.studentportal.user.LoggedInUserManager;
 import com.studentportal.user.User;
 import com.studentportal.user.UserRole;
+
+import javax.ws.rs.core.HttpHeaders;
 
 public class Framework {
 
@@ -20,10 +26,9 @@ public class Framework {
     private String userName;
     private UserRole userRole;
 
-    private AdjustableHeaderRequest activeRequest;
+    private AdjustableHeaderRequest outboundRequest;
+    private HttpHeaders inboundHeaders;
     private Document activeDocument;
-    private boolean requestValidity;
-
 
     public Dispatcher preMarshallOutDispatcher;
     public Dispatcher postMarshallOutDispatcher;
@@ -36,12 +41,19 @@ public class Framework {
         preMarshallInDispatcher = new Dispatcher();
         postMarshallInDispatcher = new Dispatcher();
 
-        User loggedInUser = LoggedInUserManager.getInstance().getLoggedInUser();
-        if(loggedInUser != null) {
+        if(LoggedInUserManager.getInstance().getLoggedInUser() != null) {
+            User loggedInUser = LoggedInUserManager.getInstance().getLoggedInUser();
             userID = loggedInUser.getUserNum();
             userEmail = loggedInUser.getUserEmail();
             userName = loggedInUser.getGivenName();
             userRole = loggedInUser.getUserRole();
+        }
+        //dummy user in case there are no users logged in
+        else {
+            userID = 1234;
+            userEmail = "test@email.com";
+            userName = "John Smith";
+            userRole = UserRole.STUDENT;
         }
     }
 
@@ -52,7 +64,7 @@ public class Framework {
         return instance;
     }
 
-    public boolean uploadDocument(Document document) {
+    public void uploadDocument(Document document) {
         this.activeDocument = document;
 
         preMarshallOutDispatcher.dispatch(new SystemContext(this));
@@ -60,61 +72,65 @@ public class Framework {
         String json = DocumentHelper.convertDocToJson(document);
         RequestAbstractFactory docFactory = RequestFactoryProducer.getFactory(RequestChoice.DOCUMENT);
         SaveDocumentRequest request = (SaveDocumentRequest) docFactory.saveRequest();
+        //For validating response
+        RequestHandler callback = new RequestHandler() {
+            @Override
+            public void onSuccess() {
+                System.out.print("Callback success");
+            }
 
-        this.activeRequest = request;
-        postMarshallOutDispatcher.dispatch(new NetworkContext(this));
+            @Override
+            public void onFailure(Exception e) {
+                e.printStackTrace();
+            }
+        };
 
-        request.makeRequest(null, json);
+        this.outboundRequest = request;
 
+        postMarshallOutDispatcher.dispatch(new OutboundNetworkContext(this));
 
+        request.makeRequest(callback, json);
+    }
 
-        preMarshallInDispatcher.dispatch(new NetworkContext(this));
+    public void serverReachedPreMarshall(HttpHeaders headers) {
+        this.inboundHeaders = headers;
+        preMarshallInDispatcher.dispatch(new InboundNetworkContext(this));
+    }
 
+    public void serverReachedPostMarshall(Document document) {
+        this.activeDocument = document;
         postMarshallInDispatcher.dispatch(new SystemContext(this));
-        return true;
     }
 
-    public boolean downloadDocument() {
-        return true;
-    }
-
-    public int getUserID() {
+    int getUserID() {
         return userID;
     }
 
-    public String getUserEmail() {
+    String getUserEmail() {
         return userEmail;
     }
 
-    public String getUserName() {
+    String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    void setUserName(String userName) {
         this.userName = userName;
     }
 
-    public UserRole getUserRole() {
+    UserRole getUserRole() {
         return userRole;
     }
 
-    public AdjustableHeaderRequest getActiveRequest() {
-        return activeRequest;
+    AdjustableHeaderRequest getOutboundRequest() {
+        return outboundRequest;
     }
 
-    public void setActiveRequest(AdjustableHeaderRequest activeRequest) {
-        this.activeRequest = activeRequest;
+    HttpHeaders getInboundHeaders() {
+        return inboundHeaders;
     }
 
-    public boolean getRequestValidity() {
-        return requestValidity;
-    }
-
-    public void setRequestValidity(boolean requestValidity) {
-        this.requestValidity = requestValidity;
-    }
-
-    public Document getActiveDocument() {
+    Document getActiveDocument() {
         return activeDocument;
     }
 }

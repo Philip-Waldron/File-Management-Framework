@@ -1,6 +1,5 @@
 package com.studentportal.http.documents.FileManagementFramework;
 
-
 import com.studentportal.file_management.Document;
 import com.studentportal.user.UserRole;
 import com.studentportal.user.UserType;
@@ -9,7 +8,6 @@ public class SystemContext extends Context {
 
     SystemContext(Framework f) {
         super(f);
-
     }
 
     public int getUserID() { return f.getUserID(); }
