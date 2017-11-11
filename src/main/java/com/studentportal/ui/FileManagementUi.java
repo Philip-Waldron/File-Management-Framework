@@ -5,6 +5,10 @@ import com.studentportal.file_management.DocumentHelper;
 import com.studentportal.http.*;
 import com.studentportal.http.documents.GetAllDocumentsRequest;
 import com.studentportal.http.documents.SaveDocumentRequest;
+import com.studentportal.interceptor.Dispatcher;
+import com.studentportal.interceptor.FileLoggingIntercepter;
+import com.studentportal.interceptor.FileValidationIntercepter;
+import com.studentportal.interceptor.ContextFile;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
@@ -14,7 +18,9 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.List;
 
-public class FileManagementUi extends Ui {
+public class FileManagementUi extends Ui {  // In intercepter architecture pattern,
+
+    private Dispatcher dispatcher;
 
     private JPanel pane;
     private GridBagConstraints c;
@@ -26,6 +32,10 @@ public class FileManagementUi extends Ui {
     private RequestHandler uploadHandler;
 
     public FileManagementUi() {
+
+        dispatcher=new Dispatcher();//create a dispatcher object
+        initConcreteInterceptorAndAttach_Application();
+
         this.uploadHandler = new RequestHandler() {
             @Override
             public void onSuccess() {
@@ -57,13 +67,29 @@ public class FileManagementUi extends Ui {
         prepareUi();
     }
 
+    private void initConcreteInterceptorAndAttach_Application(){ //this is "application class" in interceptor pattern
+        dispatcher.attach(new FileLoggingIntercepter());    // Never reverse thoes two files order -> because the Arraylist is ordered data structure.
+        dispatcher.attach(new FileValidationIntercepter()); //  Otherwise, some exception like NullPointerException will be throwed!
+    }
+
     private void initComponents() {
         uploadDocBtn = new JButton("Upload");
         uploadDocBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                File file = openChooserAndGetFile();
-                if (file != null) {
+                ContextFile fileCtx = new ContextFile(openChooserAndGetFile());  // when user click on upload, a eventContext will be created
+                //intercept point, callback
+                dispatcher.notifyObsevers(fileCtx);
+
+                //get the file after processed from context object.
+                File file = fileCtx.getFile();
+
+                //the following are business logic code
+                if (file == null) {
+                    // prompt user a dialog saying incorrect.
+                    JOptionPane.showMessageDialog(null,
+                            "File is not in legitimate format!!!!");
+                } else {
                     document = Document.createDocFromFile(file);
                     if (document != null) {
                         String json = DocumentHelper.convertDocToJson(document);
@@ -108,7 +134,7 @@ public class FileManagementUi extends Ui {
     private File openChooserAndGetFile() {
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        fc.showOpenDialog(getFrame());
+        fc.showOpenDialog(getFrame()); // context object maybe is getFrame()....
         return fc.getSelectedFile();
     }
 

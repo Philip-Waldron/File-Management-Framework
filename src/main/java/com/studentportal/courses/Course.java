@@ -8,14 +8,15 @@ import java.util.List;
 
 @Entity
 @Table(name = "courses")
-public class Course {
+public class Course implements UpdateOperation {
 
     private int id;
     private String courseCode;
     private int teacherId;
     private List<Integer> studentIdList = new ArrayList<>();
 
-    public Course() {}
+    public Course() {
+    }
 
     public Course(int id, String courseCode, int teacherId) {
         this.id = id;
@@ -62,6 +63,7 @@ public class Course {
         this.studentIdList = studentIdList;
     }
 
+    @Override
     public boolean addStudentId(Integer studentId) {
         if (studentIdList.contains(studentId)) {
             return false;
@@ -71,6 +73,7 @@ public class Course {
         }
     }
 
+    @Override
     public boolean removeStudentId(Integer studentId) {
         if (studentIdList.contains(studentId)) {
             studentIdList.remove(studentId);
@@ -80,13 +83,15 @@ public class Course {
         }
     }
 
+
     @Override
     public String toString() {
         return "Course{" +
                 "id=" + id +
                 ", courseName='" + courseCode + '\'' +
-                ", teacherId=" + teacherId + '\''+
+                ", teacherId=" + teacherId + '\'' +
                 ", studentList=" + studentIdList.size() +
                 '}';
     }
 }
+

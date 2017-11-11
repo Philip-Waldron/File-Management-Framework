@@ -1,5 +1,7 @@
 package com.studentportal.user;
 
+import com.studentportal.courses.UpdateOperation;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "teachers")
 @PrimaryKeyJoinColumn(name = "userNum")
-public class Teacher extends User {
+public class Teacher extends User implements UpdateOperation {
 
     // what course they are in charge of
     private List<Integer> courseIdList = new ArrayList<>();
@@ -22,6 +24,7 @@ public class Teacher extends User {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Column(name = "course_ids")
+
     public List<Integer> getCourseIdList() {
         return courseIdList;
     }
@@ -30,21 +33,17 @@ public class Teacher extends User {
         this.courseIdList = courseIdList;
     }
 
-    public boolean addCourseId(int courseId) {
-        if (courseIdList.contains(courseId)) {
-            return false;
-        } else {
-            courseIdList.add(courseId);
-            return true;
-        }
+    // This is a adapter, and implements ITarget (AddCourseOperation)in terms of Adaptee
+    // the addCourseId and RemoveCourseOperation are the specificRequest that must be invokered
+
+
+    @Override
+    public boolean addStudentId(Integer id) {
+        return addCourseId(courseIdList,id);
     }
 
-    public boolean removeCourseId(int courseId) {
-        if (courseIdList.contains(courseId)) {
-            courseIdList.remove(courseId);
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public boolean removeStudentId(Integer id) {
+        return removeCourseId(courseIdList,id);
     }
 }

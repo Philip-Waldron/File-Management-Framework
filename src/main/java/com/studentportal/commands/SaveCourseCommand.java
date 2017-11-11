@@ -1,6 +1,7 @@
 package com.studentportal.commands;
 
 import com.studentportal.courses.Course;
+import com.studentportal.courses.UpdateOperation;
 import com.studentportal.hibernate.CourseService;
 import com.studentportal.hibernate.UserService;
 import com.studentportal.user.Teacher;
@@ -15,7 +16,7 @@ public class SaveCourseCommand implements Command<Void> {
     private UserService uService;
 
     public SaveCourseCommand(CourseService cService, UserService uService,
-                               Course course) {
+                             Course course) {
         this.course = course;
         this.cService = cService;
         this.uService = uService;
@@ -30,7 +31,9 @@ public class SaveCourseCommand implements Command<Void> {
             cService.save(course);
             c = cService.findByCode(code);
             Teacher t = (Teacher) uService.findById(teacherId);
-            t.addCourseId(c.getId());
+            // invoke the method in UpdateOperation(Itarget) interface.
+            UpdateOperation cou = new Teacher();
+            cou.addStudentId(c.getId());
             uService.update(t);
         } else {
             throw new WebApplicationException(Response.Status.CONFLICT);
