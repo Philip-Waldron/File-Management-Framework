@@ -20,6 +20,11 @@ public class FrameworkTester {
     public static void main(String[] args) {
         Framework fw = Framework.getInstance();
 
+        fw.preMarshallOutDispatcher.register(new UserEncryptionInterceptor());
+        fw.postMarshallOutDispatcher.register(new OutboundRequestValidationInterceptor());
+        fw.preMarshallInDispatcher.register(new InboundRequestValidationInterceptor());
+        fw.postMarshallInDispatcher.register(new DecryptAndLogInterceptor());
+
         JFrame frame = new JFrame();
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
