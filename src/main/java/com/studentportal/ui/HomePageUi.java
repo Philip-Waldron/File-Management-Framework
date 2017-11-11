@@ -7,6 +7,7 @@ import com.studentportal.security.auth.AuthHelper;
 import com.studentportal.security.auth.ForgotPasswordConfirmDetails;
 import com.studentportal.ui.LoginUI;
 import com.studentportal.ui.Ui;
+import com.studentportal.user.LoggedInUserManager;
 import com.studentportal.user.User;
 import org.apache.commons.lang3.StringUtils;
 
@@ -140,6 +141,7 @@ public abstract class HomePageUi extends Ui {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // delete access token, potential interception point
+                LoggedInUserManager.getInstance().logOutUser();
                 close();
                 LoginUI ui = new LoginUI();
                 ui.show();

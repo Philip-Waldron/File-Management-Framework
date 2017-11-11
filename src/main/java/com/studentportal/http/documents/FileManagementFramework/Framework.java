@@ -1,7 +1,9 @@
 package com.studentportal.http.documents.FileManagementFramework;
 
 import com.studentportal.file_management.Document;
-import com.studentportal.user.UserType;
+import com.studentportal.user.LoggedInUserManager;
+import com.studentportal.user.User;
+import com.studentportal.user.UserRole;
 import org.apache.http.HttpRequest;
 
 public class Framework {
@@ -10,9 +12,11 @@ public class Framework {
 
     private int userID;
     private String userEmail;
-    private UserType userType;
+    private String userName;
+    private UserRole userRole;
 
     private HttpRequest activeRequest;
+    private Document activeDocument;
     private boolean requestValidity;
 
 
@@ -26,6 +30,14 @@ public class Framework {
         postMarshallOutDispatcher = new Dispatcher();
         preMarshallInDispatcher = new Dispatcher();
         postMarshallInDispatcher = new Dispatcher();
+
+        User loggedInUser = LoggedInUserManager.getInstance().getLoggedInUser();
+        if(loggedInUser != null) {
+            userID = loggedInUser.getUserNum();
+            userEmail = loggedInUser.getUserEmail();
+            userName = loggedInUser.getGivenName();
+            userRole = loggedInUser.getUserRole();
+        }
     }
 
     public static Framework getInstance() {
@@ -36,9 +48,17 @@ public class Framework {
     }
 
     public boolean uploadDocument(Document document) {
-        preMarshallOutDispatcher.dispatch(new UserContext(this));
+        this.activeDocument = document;
+
+        preMarshallOutDispatcher.dispatch(new SystemContext(this));
+
+
 
         postMarshallOutDispatcher.dispatch(new NetworkContext(this));
+
+        preMarshallInDispatcher.dispatch(new NetworkContext(this));
+
+        postMarshallInDispatcher.dispatch(new SystemContext(this));
         return true;
     }
 
@@ -54,10 +74,16 @@ public class Framework {
         return userEmail;
     }
 
-    public void setUserEmail(String userEmail) { this.userEmail = userEmail;}
+    public String getUserName() {
+        return userName;
+    }
 
-    public UserType getUserType() {
-        return userType;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
     }
 
     public HttpRequest getActiveRequest() {
@@ -74,5 +100,9 @@ public class Framework {
 
     public void setRequestValidity(boolean requestValidity) {
         this.requestValidity = requestValidity;
+    }
+
+    public Document getActiveDocument() {
+        return activeDocument;
     }
 }

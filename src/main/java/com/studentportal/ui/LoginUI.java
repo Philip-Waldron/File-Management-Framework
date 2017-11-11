@@ -9,6 +9,7 @@ import com.studentportal.security.auth.AuthHelper;
 import com.studentportal.security.auth.ForgotPasswordConfirmDetails;
 import com.studentportal.security.auth.SignInCredentials;
 import com.studentportal.security.auth.SignUpConfirmDetails;
+import com.studentportal.user.LoggedInUserManager;
 import com.studentportal.user.Student;
 import com.studentportal.user.User;
 import com.studentportal.user.UserRole;
@@ -144,6 +145,9 @@ public class LoginUI extends Ui {
                     SignInRequest request = new SignInRequest();
 
                     User user = request.makeRequest(signInHandler, json);
+
+                    LoggedInUserManager.getInstance().setLoggedInUser(user);
+
                     if (user != null) {
                         System.out.println(user.toString());
                         if (user.getUserRole().equals(UserRole.ADMIN)) {

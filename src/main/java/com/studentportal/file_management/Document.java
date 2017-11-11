@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import static javax.persistence.FetchType.LAZY;
 

@@ -1,7 +1,7 @@
 package com.studentportal.http.documents.FileManagementFramework;
 
 
-public abstract interface Interceptor<C extends Context> {
+public interface Interceptor<C extends Context> {
 
-    public abstract void notify(C context);
+    public void notify(C context);
 }
