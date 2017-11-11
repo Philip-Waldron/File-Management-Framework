@@ -19,6 +19,7 @@ import org.apache.http.util.EntityUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 public class FileManagementApiTest extends TestCase {
 
@@ -40,6 +41,19 @@ public class FileManagementApiTest extends TestCase {
         assertTrue(savedDoc.getFileName().equals(doc.getFileName()));
     }
 
-//    public void testDownloadDocument() throws Exception {
-//    }
+    public void testDownloadDocument() throws Exception {
+        File file = new File("random2.pdf");
+        Document doc = Document.createDocFromFile(file);
+        docService.save(doc);
+
+        Integer docId = null;
+        List<Document> docs = docService.findAll();
+        if (docs.size() > 0) {
+            docId = docs.get(0).getId();
+        }
+
+        Document downloadedDoc = api.downloadDocument(docId);
+
+        assertTrue(downloadedDoc.getFileName().equals(doc.getFileName()));
+    }
 }

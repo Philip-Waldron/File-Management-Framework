@@ -13,7 +13,7 @@
         <property name="connection.password"></property>
         <property name="connection.pool_size">20</property>
         <property name="hibernate.hbm2ddl.auto">create-drop</property>
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
 
         <!-- connection details -->
         <!--<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>-->
