@@ -1,35 +1,19 @@
 package com.studentportal.core;
 
-import com.studentportal.api.AssignmentApi;
 import com.studentportal.api.AuthApi;
-import com.studentportal.api.CourseApi;
-import com.studentportal.assignments.AssignmentHelper;
-import com.studentportal.assignments.CompletedQuiz;
-import com.studentportal.commands.SignInCommand;
-import com.studentportal.courses.Course;
-import com.studentportal.courses.CourseHelper;
-import com.studentportal.hibernate.UserService;
 import com.studentportal.security.auth.AuthHelper;
-import com.studentportal.security.auth.SignInCredentials;
-import com.studentportal.security.auth.SignUpConfirmDetails;
 import com.studentportal.security.auth.SignUpDetails;
-import com.studentportal.ui.AssignmentUi;
+import com.studentportal.security.aws.CognitoUser;
 import com.studentportal.ui.FileManagementUi;
 import com.studentportal.ui.LoginUI;
-import com.studentportal.user.Admin;
-import com.studentportal.user.User;
 import com.studentportal.user.UserRole;
-import jdk.nashorn.internal.ir.Assignment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Client {
 
     public static void main(String[] args) {
-        login();
+//        login();
 //        signUpAdmin();
-
+        CognitoUser.getUser("cod3min3@gmail.com");
     }
 
     private static void login() {

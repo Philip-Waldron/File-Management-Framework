@@ -21,7 +21,7 @@ public class SignInCommand implements Command<User> {
 
     @Override
     public User execute() {
-        AwsCognitoResult result = SignIn.doWork(credentials.getEmail(),
+        AwsCognitoResult result = SignIn.doWork(credentials.getEmail().trim(),
                 credentials.getPassword());
         User user = null;
         if (result.isSuccessful()) {
@@ -30,8 +30,17 @@ public class SignInCommand implements Command<User> {
             return user;
         } else {
             if (result.getReason().equals(ResultReasons.TEMP_PASSWORD_USED)) {
-                throw new WebApplicationException(result.getReason().name(),
-                        Response.Status.FOUND);
+                throw new WebApplicationException(Response.status(Response.Status.FOUND)
+                        .entity("A temporary password was used. Enter a new password").build());
+            } else if (result.getReason().equals(ResultReasons.NOT_AUTHORIZED)) {
+                throw new WebApplicationException(Response.status(Response.Status.UNAUTHORIZED)
+                        .entity("An incorrect email or password was used").build());
+            } else if (result.getReason().equals(ResultReasons.NO_SUCH_USER)) {
+                throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
+                        .entity("A user with email does not exist").build());
+            } else if (result.getReason().equals(ResultReasons.TOO_MANY_REQUESTS)) {
+                throw new WebApplicationException(Response.status(Response.Status.SERVICE_UNAVAILABLE)
+                        .entity("Too many requests were sent. Please try again later").build());
             }
         }
         return user;

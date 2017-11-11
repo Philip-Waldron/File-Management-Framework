@@ -28,7 +28,7 @@ public class AuthApi {
     @Path("/signUp")
     public void signUp(String json) {
         SignUpDetails details = AuthHelper.extractSignUpDetailsFromJson(json);
-        SignUpCommand cmd = new SignUpCommand(details, uService);
+        SignUpCommand cmd = new SignUpCommand(details);
         ApiControl apiControl = new ApiControl();
         apiControl.setCommand(cmd);
         apiControl.doWork();
@@ -38,7 +38,7 @@ public class AuthApi {
     @Path("/signUp/confirm")
     public void signUpConfirm(String json) {
         SignUpConfirmDetails confirmDetails = AuthHelper.extractSignUpConfirmDetailsFromJson(json);
-        SignUpConfirmCommand cmd = new SignUpConfirmCommand(confirmDetails);
+        SignUpConfirmCommand cmd = new SignUpConfirmCommand(confirmDetails, uService);
         ApiControl apiControl = new ApiControl();
         apiControl.setCommand(cmd);
         apiControl.doWork();

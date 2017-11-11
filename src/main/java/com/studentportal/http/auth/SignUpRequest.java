@@ -10,6 +10,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -23,18 +24,16 @@ public class SignUpRequest implements HttpRequest<Void, String> {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             try {
                 HttpPost httpPost = new HttpPost("http://localhost:9990/auth/signUp");
-                ResponseHandler<Void> responseHandler = new ResponseHandler<Void>() {
-                    @Override
-                    public Void handleResponse(HttpResponse httpResponse) throws IOException {
-                        int status = httpResponse.getStatusLine().getStatusCode();
-                        String message = httpResponse.getStatusLine().getReasonPhrase();
-                        if (status >= 200 && status < 300) {
-                            callback.onSuccess();
-                        } else {
-                            callback.onFailure(new ClientProtocolException(message));
-                        }
-                        return null;
+                ResponseHandler<Void> responseHandler = httpResponse -> {
+                    int status = httpResponse.getStatusLine().getStatusCode();
+                    String reason = httpResponse.getStatusLine().getReasonPhrase();
+                    if (status >= 200 && status < 300) {
+                        callback.onSuccess();
+                    } else {
+                        String msg = EntityUtils.toString(httpResponse.getEntity());
+                        callback.onFailure(new ClientProtocolException(reason + ": " + msg));
                     }
+                    return null;
                 };
                 StringEntity entity = new StringEntity(json);
                 httpPost.addHeader("content-type", "application/json");

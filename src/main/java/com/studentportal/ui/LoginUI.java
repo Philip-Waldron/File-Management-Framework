@@ -67,7 +67,7 @@ public class LoginUI extends Ui {
 
             @Override
             public void onFailure(Exception e) {
-                if (e.getMessage().contains("302")) {
+                if (e.getMessage().contains("Found")) {
                     JOptionPane.showMessageDialog(getFrame(),
                             "Temporary password used, enter a new password");
                     String finalPassword = JOptionPane.showInputDialog(getFrame(),
@@ -232,10 +232,4 @@ public class LoginUI extends Ui {
         }
         return true;
     }
-
-//    public static void main(String[] args) {
-//        loginUI a = new loginUI();
-//        //a.prepareGUI();
-//        a.show();
-//    }
 }

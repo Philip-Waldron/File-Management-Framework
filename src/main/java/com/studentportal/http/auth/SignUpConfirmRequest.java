@@ -23,18 +23,15 @@ public class SignUpConfirmRequest implements HttpRequest<Void, String> {
             CloseableHttpClient httpClient = HttpClients.createDefault();
             try {
                 HttpPost httpPost = new HttpPost("http://localhost:9990/auth/signUp/confirm");
-                ResponseHandler<Void> responseHandler = new ResponseHandler<Void>() {
-                    @Override
-                    public Void handleResponse(HttpResponse httpResponse) throws IOException {
-                        int status = httpResponse.getStatusLine().getStatusCode();
-                        String message = httpResponse.getStatusLine().getReasonPhrase();
-                        if (status >= 200 && status < 300) {
-                            callback.onSuccess();
-                        } else {
-                            callback.onFailure(new ClientProtocolException("Reason: " + message));
-                        }
-                        return null;
+                ResponseHandler<Void> responseHandler = httpResponse -> {
+                    int status = httpResponse.getStatusLine().getStatusCode();
+                    String message = httpResponse.getStatusLine().getReasonPhrase();
+                    if (status >= 200 && status < 300) {
+                        callback.onSuccess();
+                    } else {
+                        callback.onFailure(new ClientProtocolException(status + ": " + message));
                     }
+                    return null;
                 };
                 StringEntity entity = new StringEntity(json);
                 httpPost.addHeader("content-type", "application/json");

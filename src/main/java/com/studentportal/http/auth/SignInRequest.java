@@ -34,7 +34,7 @@ public class SignInRequest implements HttpRequest<User, String> {
                     @Override
                     public String handleResponse(HttpResponse httpResponse) throws IOException {
                         int status = httpResponse.getStatusLine().getStatusCode();
-                        String message = httpResponse.getStatusLine().getReasonPhrase();
+                        String reason = httpResponse.getStatusLine().getReasonPhrase();
                         if (status >= 200 && status < 300) {
                             HttpEntity entity = httpResponse.getEntity();
                             if (entity != null) {
@@ -42,8 +42,8 @@ public class SignInRequest implements HttpRequest<User, String> {
                                 return EntityUtils.toString(entity);
                             }
                         } else {
-                            callback.onFailure(new ClientProtocolException(
-                                    "Response: " + status));
+                            String msg = EntityUtils.toString(httpResponse.getEntity());
+                            callback.onFailure(new ClientProtocolException(reason + ": " + msg));
                         }
                         return null;
                     }
