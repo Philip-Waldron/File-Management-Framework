@@ -3,22 +3,24 @@ package com.studentportal.reminders.ReminderTypes;
 import com.studentportal.reminders.Senders.ReminderSender;
 
 import java.util.Date;
+import java.util.List;
 
 public class AssignmentReminder extends Reminder {
 
-    public AssignmentReminder() {
+    private AssignmentReminder() {
         super();
         setDefaultValues();
     }
 
-    public AssignmentReminder(Builder builder) {
+    public AssignmentReminder(AssignmentReminderBuilder builder) {
         this.sender = builder.sender;
         this.title = builder.title;
         this.message = builder.message;
         this.date = builder.date;
+        this.targetUserIds = builder.targetUserIds;
     }
 
-    public AssignmentReminder(ReminderSender sender) {
+    private AssignmentReminder(ReminderSender sender) {
         super();
         this.sender = sender;
         setDefaultValues();
@@ -31,32 +33,38 @@ public class AssignmentReminder extends Reminder {
     }
 
     @Override
-    public void send() {
+    public void send(List<Integer> targetUserIds) {
         sender.sendReminder(title, message);
     }
 
-    public static class Builder {
+    public static class AssignmentReminderBuilder {
         private final ReminderSender sender;
         private String title;
         private String message;
         private Date date;
+        private List<Integer> targetUserIds;
 
-        public Builder(ReminderSender sender) {
+        public AssignmentReminderBuilder(ReminderSender sender) {
             this.sender = sender;
         }
 
-        public Builder title(String title) {
+        public AssignmentReminderBuilder title(String title) {
             this.title = title;
             return this;
         }
 
-        public Builder message(String message) {
+        public AssignmentReminderBuilder message(String message) {
             this.message = message;
             return this;
         }
 
-        public Builder date(Date date) {
+        public AssignmentReminderBuilder date(Date date) {
             this.date = date;
+            return this;
+        }
+
+        public AssignmentReminderBuilder ownerId(List<Integer> targetUserIds) {
+            this.targetUserIds = targetUserIds;
             return this;
         }
 
