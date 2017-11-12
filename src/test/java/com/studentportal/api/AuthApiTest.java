@@ -7,6 +7,7 @@ import com.studentportal.user.Admin;
 import com.studentportal.user.User;
 import com.studentportal.user.UserRole;
 import junit.framework.TestCase;
+import org.junit.Test;
 
 public class AuthApiTest extends TestCase {
 
@@ -15,6 +16,7 @@ public class AuthApiTest extends TestCase {
 
     // only testing this method because its one because its a lot of work testing the other ones
     // since we would have to access the email programmatically so we can get the temp password
+    @Test
     public void testSignIn() throws Exception {
         String email = "testaccntemail@gmail.com";
         String password = "password";

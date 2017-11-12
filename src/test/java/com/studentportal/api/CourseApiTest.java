@@ -1,6 +1,7 @@
 package com.studentportal.api;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 public class CourseApiTest extends TestCase {
 
