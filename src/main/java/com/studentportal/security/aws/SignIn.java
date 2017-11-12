@@ -41,10 +41,12 @@ public class SignIn {
                             + authResponse.getChallengeName());
                 }
             } catch (UserNotFoundException e) {
+                System.out.println("No such user");
                 System.out.println(e.getLocalizedMessage());
                 return new AwsCognitoResult(false,
                         ResultReasons.NO_SUCH_USER);
             } catch (NotAuthorizedException e) {
+                System.out.println("Not authorized");
                 System.out.println(e.getLocalizedMessage());
                 return new AwsCognitoResult(false,
                         ResultReasons.NOT_AUTHORIZED);

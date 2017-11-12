@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * This is the base class for all users in the system
@@ -87,6 +88,28 @@ public abstract class User {
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
     }
+
+
+    // This is a Adaptee, the implementation that must be adapted to the interface ITarget.
+    public boolean addCourseId(List<Integer> courseIdList, Integer courseId) {
+        if (courseIdList.contains(courseId)) {
+            courseIdList.remove(courseId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean removeCourseId(List<Integer> courseIdList, Integer courseId) {
+        if (courseIdList.contains(courseId)) {
+            return false;
+        } else {
+            courseIdList.add(courseId);
+            return true;
+        }
+    }
+
+
 
     @Override
     public String toString() {

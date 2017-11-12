@@ -6,10 +6,13 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProviderClientBuilder;
 import com.amazonaws.services.cognitoidp.model.AuthenticationResultType;
+import com.nimbusds.jose.JWSObject;
 import com.studentportal.security.auth.Constants;
+import net.minidev.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.ws.rs.core.Cookie;
+import java.text.ParseException;
 
 public class AwsCognito {
 
@@ -59,7 +62,19 @@ public class AwsCognito {
     }
 
     public void updateCredentialsCookies(AuthenticationResultType authResult) {
-        tokenCache.addToken(authResult.getAccessToken());
+//        tokenCache.addToken(authResult.getAccessToken());
+
+        System.out.println("*** ID TOKEN ***");
+        try {
+            JWSObject jwsObject = JWSObject.parse(authResult.getIdToken());
+            JSONObject jsonObject = jwsObject.getPayload().toJSONObject();
+            String email = jsonObject.getAsString("email");
+            System.out.println(email);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("*****************************");
+
         Cookie accessTokenCookie = new Cookie(Constants.CookieNames.ACCESS_TOKEN, authResult.getAccessToken());
         if (!StringUtils.isBlank(authResult.getRefreshToken())) {
             Cookie resfreshTokenCookie = new Cookie(Constants.CookieNames.REFRESH_TOKEN, authResult.getRefreshToken());

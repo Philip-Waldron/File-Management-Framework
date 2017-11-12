@@ -1,6 +1,7 @@
 package com.studentportal.commands;
 
 import com.studentportal.courses.Course;
+import com.studentportal.courses.UpdateOperation;
 import com.studentportal.hibernate.CourseService;
 import com.studentportal.hibernate.UserService;
 import com.studentportal.user.Student;
@@ -26,10 +27,9 @@ public class AddStudentToCourseCommand implements Command<Void> {
     public Void execute() {
         Course course = cService.findByCode(courseCode);
         Student student = (Student) uService.findById(studentId);
-
         if (!course.getStudentIdList().contains(studentId)) {
             course.addStudentId(studentId);
-            student.addCourseId(course.getId());
+            student.removeStudentId(course.getId());
             cService.update(course);
             uService.update(student);
         } else {

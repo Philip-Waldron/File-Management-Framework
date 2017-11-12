@@ -11,6 +11,8 @@ import com.studentportal.hibernate.DocumentService;
 import com.studentportal.hibernate.UserService;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 import java.util.logging.Logger;
@@ -27,8 +29,15 @@ public class FileManagementApi {
 
     @POST
     @Path("/document/upload")
-    public void uploadDocument(String json) {
+    public void uploadDocument(String json, @Context HttpHeaders headers) {
         LOG.info("hit upload api");
+
+        //
+        if (headers != null) {
+            String token = headers.getRequestHeader("Developer-Token").get(0);
+            System.out.println(token);
+        }
+
         Document doc = DocumentHelper.extractDocumentFromJson(json);
         UploadDocumentCommand cmd = new UploadDocumentCommand(doc, docService);
         ApiControl apiControl = new ApiControl();

@@ -14,7 +14,7 @@ public class CredentialsCache implements Serializable {
 
     private static final long DEFAULT_TIMEOUT = 15 * 60 * 1000L;
 
-    private Map<String, Date> cache;
+    private static Map<String, Date> cache;
 
     /**
      *  Creates a new cache, holding up to <code>maxEntries</code> entries.

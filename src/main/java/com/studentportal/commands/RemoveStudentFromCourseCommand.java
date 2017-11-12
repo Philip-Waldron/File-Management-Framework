@@ -1,6 +1,7 @@
 package com.studentportal.commands;
 
 import com.studentportal.courses.Course;
+import com.studentportal.courses.UpdateOperation;
 import com.studentportal.hibernate.CourseService;
 import com.studentportal.hibernate.UserService;
 import com.studentportal.user.Student;
@@ -16,12 +17,13 @@ public class RemoveStudentFromCourseCommand implements Command<Void> {
     private int studentId;
 
     public RemoveStudentFromCourseCommand(CourseService cService, UserService uService,
-                                     String courseCode, int studentId) {
+                                          String courseCode, int studentId) {
         this.cService = cService;
         this.uService = uService;
         this.courseCode = courseCode;
         this.studentId = studentId;
     }
+
     @Override
     public Void execute() {
         Course course = cService.findByCode(courseCode);
@@ -31,7 +33,7 @@ public class RemoveStudentFromCourseCommand implements Command<Void> {
 //        System.out.println(student.getCourseIdList().toString());
         if (course.getStudentIdList().contains(studentId)) {
             course.removeStudentId(studentId);
-            student.removeCourseId(course.getId());
+            student.removeStudentId(course.getId());
             cService.update(course);
             uService.update(student);
         } else {

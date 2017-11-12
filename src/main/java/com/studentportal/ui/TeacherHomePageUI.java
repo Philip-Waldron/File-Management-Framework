@@ -1,5 +1,8 @@
 package com.studentportal.ui;
 
+import com.studentportal.courses.Course;
+import com.studentportal.http.RequestHandler;
+import com.studentportal.http.courses.GetAllCoursesByTeacherRequest;
 import com.studentportal.user.Teacher;
 import com.studentportal.user.User;
 
@@ -7,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class TeacherHomePageUI extends HomePageUi {
 
@@ -40,7 +44,20 @@ public class TeacherHomePageUI extends HomePageUi {
         announcementsBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AnnouncementsUI_teacher ui = new AnnouncementsUI_teacher();
+                RequestHandler callback = new RequestHandler() {
+                    @Override
+                    public void onSuccess() {
+                        System.out.println("Got courses by teacher");
+                    }
+
+                    @Override
+                    public void onFailure(Exception e) {
+                        JOptionPane.showMessageDialog(getFrame(), e.getMessage());
+                    }
+                };
+                GetAllCoursesByTeacherRequest request = new GetAllCoursesByTeacherRequest();
+                List<Course> cList = request.makeRequest(callback, getUser().getUserNum());
+                AnnouncementsUI_teacher ui = new AnnouncementsUI_teacher(cList);
                 ui.show();
             }
         });
