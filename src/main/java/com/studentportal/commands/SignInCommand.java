@@ -3,6 +3,7 @@ package com.studentportal.commands;
 import com.studentportal.hibernate.UserService;
 import com.studentportal.security.auth.SignInCredentials;
 import com.studentportal.security.aws.AwsCognitoResult;
+import com.studentportal.security.aws.CognitoUser;
 import com.studentportal.security.aws.ResultReasons;
 import com.studentportal.security.aws.SignIn;
 import com.studentportal.user.User;
@@ -27,6 +28,10 @@ public class SignInCommand implements Command<User> {
         if (result.isSuccessful()) {
             System.out.println("Successful login attempt");
             user = uService.findByEmail(credentials.getEmail());
+            if (user == null) {
+                user = CognitoUser.getUser(credentials.getEmail());
+                uService.save(user);
+            }
             return user;
         } else {
             if (result.getReason().equals(ResultReasons.TEMP_PASSWORD_USED)) {
