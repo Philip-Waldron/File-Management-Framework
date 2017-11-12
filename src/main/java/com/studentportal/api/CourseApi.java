@@ -1,9 +1,7 @@
 package com.studentportal.api;
 
-import com.studentportal.commands.AddStudentToCourseCommand;
-import com.studentportal.commands.GetAllCoursesByTeacherCommand;
-import com.studentportal.commands.RemoveStudentFromCourseCommand;
-import com.studentportal.commands.SaveCourseCommand;
+import com.studentportal.announcement.Announcement;
+import com.studentportal.commands.*;
 import com.studentportal.courses.Course;
 import com.studentportal.courses.CourseHelper;
 import com.studentportal.hibernate.CourseService;
@@ -62,5 +60,15 @@ public class CourseApi {
         ApiControl apiControl = new ApiControl();
         apiControl.setCommand(cmd);
         apiControl.doWork();
+    }
+
+    @POST
+    @Path("/add/announcement")
+    public void addAnnouncementToCourse(String json) {
+        Course course = CourseHelper.extractCourseFromJson(json);
+        SaveAnnouncementCommand cmd = new SaveAnnouncementCommand(course, cService);
+        ApiControl control = new ApiControl();
+        control.setCommand(cmd);
+        control.doWork();
     }
 }

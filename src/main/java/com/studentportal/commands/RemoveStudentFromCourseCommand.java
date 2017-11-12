@@ -33,8 +33,7 @@ public class RemoveStudentFromCourseCommand implements Command<Void> {
 //        System.out.println(student.getCourseIdList().toString());
         if (course.getStudentIdList().contains(studentId)) {
             course.removeStudentId(studentId);
-            UpdateOperation cou = new Student();
-            cou.removeStudentId(course.getId());
+            student.removeStudentId(course.getId());
             cService.update(course);
             uService.update(student);
         } else {

@@ -1,6 +1,8 @@
 package com.studentportal.hibernate;
 
-import com.studentportal.announcement.announcement;
+import com.studentportal.announcement.Announcement;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class AnnouncementService {
@@ -10,27 +12,37 @@ public class AnnouncementService {
         this.dao = new AnnouncementDAO();
     }
 
-    public announcement findById(int id) {
+    public Announcement findById(int id) {
         dao.openCurrentSession();
-        announcement a = dao.findById(id);
+        Announcement a = dao.findById(id);
         dao.closeCurrentSession();
         return a;
     }
 
-    public List<announcement> findAll() {
+    public List<Announcement> findAllByCourseId(int courseId) {
+        List<Announcement> aList = new ArrayList<>();
+        for (Announcement a : findAll()) {
+            if (a.getCourse().getId() == courseId) {
+                aList.add(a);
+            }
+        }
+        return aList;
+    }
+
+    public List<Announcement> findAll() {
         dao.openCurrentSession();
-        List<announcement> aList = dao.findAll();
+        List<Announcement> aList = dao.findAll();
         dao.closeCurrentSession();
         return aList;
     }
 
-    public void save(announcement a) {
+    public void save(Announcement a) {
         dao.openCurrentSessionWithTransaction();
         dao.save(a);
         dao.closeCurrentSessionWithTransaction();
     }
 
-    public void update(announcement a) {
+    public void update(Announcement a) {
         dao.openCurrentSessionWithTransaction();
         dao.update(a);
         dao.closeCurrentSessionWithTransaction();
@@ -38,7 +50,7 @@ public class AnnouncementService {
 
     public void delete(int id) {
         dao.openCurrentSessionWithTransaction();
-        announcement a = dao.findById(id);
+        Announcement a = dao.findById(id);
         dao.delete(a);
         dao.closeCurrentSessionWithTransaction();
     }

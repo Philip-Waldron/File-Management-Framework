@@ -1,10 +1,15 @@
 package com.studentportal.courses;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.studentportal.announcement.Announcement;
 import com.studentportal.user.Teacher;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "courses")
@@ -14,6 +19,7 @@ public class Course implements UpdateOperation {
     private String courseCode;
     private int teacherId;
     private List<Integer> studentIdList = new ArrayList<>();
+    private Set<Announcement> announcementSet = new HashSet<>();
 
     public Course() {
     }
@@ -61,6 +67,29 @@ public class Course implements UpdateOperation {
 
     public void setStudentIdList(List<Integer> studentIdList) {
         this.studentIdList = studentIdList;
+    }
+
+    @JsonManagedReference
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    public Set<Announcement> getAnnouncementSet() {
+        return announcementSet;
+    }
+
+    public void setAnnouncementSet(Set<Announcement> announcementSet) {
+        this.announcementSet = announcementSet;
+    }
+
+    public void addAnnouncement(Announcement announcement) {
+        this.announcementSet.add(announcement);
+    }
+
+    public void removeAnnouncement(Integer id) {
+        for (Announcement a : announcementSet) {
+            if (a.getId() == id) {
+                announcementSet.remove(a);
+            }
+        }
     }
 
     @Override

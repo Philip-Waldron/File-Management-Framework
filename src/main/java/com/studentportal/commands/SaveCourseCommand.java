@@ -32,8 +32,7 @@ public class SaveCourseCommand implements Command<Void> {
             c = cService.findByCode(code);
             Teacher t = (Teacher) uService.findById(teacherId);
             // invoke the method in UpdateOperation(Itarget) interface.
-            UpdateOperation cou = new Teacher();
-            cou.addStudentId(c.getId());
+            t.addStudentId(c.getId());
             uService.update(t);
         } else {
             throw new WebApplicationException(Response.Status.CONFLICT);

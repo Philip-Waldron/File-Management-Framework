@@ -1,6 +1,6 @@
 package com.studentportal.hibernate;
 
-import com.studentportal.announcement.announcement;
+import com.studentportal.announcement.Announcement;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -10,47 +10,47 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 
-public class AnnouncementDAO implements GenericDAO<announcement, Integer> {
+public class AnnouncementDAO implements GenericDAO<Announcement, Integer> {
 
     private Session currentSession;
     private Transaction currentTransaction;
 
     @Override
-    public announcement findById(Integer id) {
-        announcement a  = (announcement) getCurrentSession().get(announcement.class, id);
+    public Announcement findById(Integer id) {
+        Announcement a = (Announcement) getCurrentSession().get(Announcement.class, id);
         return a;
     }
 
     @Override
-    public List<announcement> findAll() {
+    public List<Announcement> findAll() {
         CriteriaBuilder builder = getCurrentSession().getCriteriaBuilder();
-        CriteriaQuery<announcement> query = builder.createQuery(announcement.class);
-        Root<announcement> aRoot = query.from(announcement.class);
+        CriteriaQuery<Announcement> query = builder.createQuery(Announcement.class);
+        Root<Announcement> aRoot = query.from(Announcement.class);
         query.select(aRoot);
-        List<announcement> aList = getCurrentSession().createQuery(query)
+        List<Announcement> aList = getCurrentSession().createQuery(query)
                 .getResultList();
         return aList;
     }
 
     @Override
-    public void save(announcement entity) {
+    public void save(Announcement entity) {
         getCurrentSession().save(entity);
     }
 
     @Override
-    public void update(announcement entity) {
+    public void update(Announcement entity) {
         getCurrentSession().update(entity);
     }
 
     @Override
-    public void delete(announcement entity) {
+    public void delete(Announcement entity) {
         getCurrentSession().delete(entity);
     }
 
     @Override
     public void deleteAll() {
-        List<announcement> aList = findAll();
-        for(announcement a : aList) {
+        List<Announcement> aList = findAll();
+        for (Announcement a : aList) {
             delete(a);
         }
     }

@@ -1,31 +1,37 @@
 package com.studentportal.announcement;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.studentportal.courses.Course;
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "announcement")
 @PrimaryKeyJoinColumn(name = "announcement_id")
-public class announcement {
+public class Announcement {
     private int id;
     private String title;
     private String announcement;
-    private int lecturerId;
+    private Course course;
+    private String courseCode;
     private String Date;
 
-    public announcement() {
+    public Announcement() {
     }
 
-    public announcement(int id, String title, String announcement, String Date, int lecturerId) {
+    public Announcement(int id, String title, String announcement, String Date, Course course, String courseCode) {
         this.id = id;
         this.title = title;
         this.announcement = announcement;
         this.Date = Date;
-        this.lecturerId = lecturerId;
+        this.course = course;
+        this.courseCode = courseCode;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "announcement_id")
     public int getId() {
         return id;
     }
@@ -52,13 +58,16 @@ public class announcement {
         this.announcement = announcement;
     }
 
-    @Column(name = "getLectureId")
-    public int getLecturerId() {
-        return lecturerId;
+    @JsonBackReference
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
+    public Course getCourse() {
+        return course;
     }
 
-    public void setLecturerId(int lecturerId) {
-        this.lecturerId = lecturerId;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Column(name = "date")
@@ -70,6 +79,14 @@ public class announcement {
         Date = date;
     }
 
+    @Column(name = "courseCode")
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
     @Override
     public String toString() {
@@ -77,7 +94,7 @@ public class announcement {
                 "id=" + id +
                 ", title=" + title +
                 ", announcement=" + announcement +
-                ", lecturerId='" + lecturerId + '\'' +
+                ", course='" + course.getCourseCode() + '\'' +
                 ", date=" + Date +
                 '}';
     }
