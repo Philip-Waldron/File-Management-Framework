@@ -30,13 +30,13 @@ public class RemindersUI extends Ui {
 
     private void populateReminders() {
         reminders = new ArrayList<Reminder>();
-        reminders.add(new AssignmentReminder.Builder(new SMSReminderSender())
+        reminders.add(new AssignmentReminder.AssignmentReminderBuilder(new SMSReminderSender())
                                             .date(new Date())
                                             .title("Assignment Due")
                                             .message("Assignment Due soon")
                                             .build());
 
-        reminders.add(new MeetingReminder.Builder(new EmailReminderSender())
+        reminders.add(new MeetingReminder.MeetingReminderBuilder(new EmailReminderSender())
                 .date(new Date())
                 .title("Meeting")
                 .message("Meeting Due soon")
