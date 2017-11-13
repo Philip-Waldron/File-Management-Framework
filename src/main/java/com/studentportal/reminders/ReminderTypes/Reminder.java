@@ -74,7 +74,7 @@ public abstract class Reminder {
         this.sender = sender;
     }
 
-    public abstract void send(List<Integer> targetUserIds);
+    public abstract void send();
 
 
 }

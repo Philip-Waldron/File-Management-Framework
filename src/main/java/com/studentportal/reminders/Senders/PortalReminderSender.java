@@ -1,8 +1,11 @@
 package com.studentportal.reminders.Senders;
 
-public class PortalReminderSender implements ReminderSender {
+import java.util.List;
 
-    public void sendReminder(String title, String body) {
+public class PortalReminderSender extends ReminderSender {
+
+    @Override
+    public void sendReminder(String title, String body, List<Integer> targetUserIds) {
         System.out.println("Sending Portal Reminder...\n");
     }
 }

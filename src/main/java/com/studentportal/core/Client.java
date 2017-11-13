@@ -3,6 +3,7 @@ package com.studentportal.core;
 import com.studentportal.announcement.Announcement;
 import com.studentportal.api.AnnouncementApi;
 import com.studentportal.api.AuthApi;
+import com.studentportal.reminders.ReminderTypes.AssignmentReminder;
 import com.studentportal.security.auth.AuthHelper;
 import com.studentportal.security.auth.SignInCredentials;
 import com.studentportal.security.auth.SignUpDetails;

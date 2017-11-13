@@ -29,12 +29,12 @@ public class AssignmentReminder extends Reminder {
     private void setDefaultValues() {
         date = new Date();
         title = "Assignment Due";
-        message = "You have an assignment due " + date.toString() + ".";
+        message = "You have an assignment due today!";
     }
 
     @Override
-    public void send(List<Integer> targetUserIds) {
-        sender.sendReminder(title, message);
+    public void send() {
+        sender.sendReminder(title, message, targetUserIds);
     }
 
     public static class AssignmentReminderBuilder {
@@ -63,12 +63,16 @@ public class AssignmentReminder extends Reminder {
             return this;
         }
 
-        public AssignmentReminderBuilder ownerId(List<Integer> targetUserIds) {
+        public AssignmentReminderBuilder targetUserIds(List<Integer> targetUserIds) {
             this.targetUserIds = targetUserIds;
             return this;
         }
 
-        public Reminder build() {
+        public AssignmentReminder build() {
+            if(this.title == null)
+                title = "Assignment Due";
+            if(this.message == null)
+                message = "You have an assignment due today!";
             return new AssignmentReminder(this);
         }
 

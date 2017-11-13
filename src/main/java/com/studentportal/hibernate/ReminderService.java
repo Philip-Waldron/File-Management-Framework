@@ -8,6 +8,10 @@ import java.util.List;
 public class ReminderService {
     private ReminderDAO dao;
 
+    public ReminderService() {
+        dao = new ReminderDAO();
+    }
+
     public List<Reminder> findRemindersByUserId(int ownerId) {
         List<Reminder> rList = findAll();
         ArrayList<Reminder> rListByUserId = new ArrayList<>();
