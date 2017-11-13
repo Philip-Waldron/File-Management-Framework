@@ -33,8 +33,8 @@ public class MeetingReminder extends Reminder {
     }
 
     @Override
-    public void send(List<Integer> targetUserIds) {
-        sender.sendReminder(title, message);
+    public void send() {
+        sender.sendReminder(title, message, targetUserIds);
     }
 
     public static class MeetingReminderBuilder {
