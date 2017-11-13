@@ -15,7 +15,7 @@ import com.studentportal.user.UserRole;
 public class Client {
 
     public static void main(String[] args) {
-        login();
+       login();
 //        signUpAdmin();
 //        loginTest();
     }
@@ -35,9 +35,9 @@ public class Client {
     }
 
     private static void signUpAdmin() {
-        String email = "12170321@studentmail.ul.ie";
-        String given_name = "David";
-        String family_name = "Nkanga";
+        String email = "14173026@studentmail.ul.ie";
+        String given_name = "Philip";
+        String family_name = "Waldron";
         UserRole userRole = UserRole.ADMIN;
 
         SignUpDetails dets = new SignUpDetails(email, given_name, family_name, userRole);
