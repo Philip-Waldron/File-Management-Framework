@@ -1,8 +1,14 @@
 package com.studentportal.reminders.Senders;
 
-public class SMSReminderSender implements ReminderSender {
+import java.util.List;
 
-    public void sendReminder(String title, String body) {
+public class SMSReminderSender extends ReminderSender {
+
+    public SMSReminderSender() {
+        this.setSenderType(SenderType.SMS);
+    }
+    @Override
+    public void sendReminder(String title, String body, List<Integer> targetUserIds) {
         System.out.println("Sending SMS Reminder...\n");
     }
 }

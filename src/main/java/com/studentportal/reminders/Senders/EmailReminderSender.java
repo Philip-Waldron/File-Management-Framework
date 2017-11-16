@@ -1,8 +1,30 @@
 package com.studentportal.reminders.Senders;
 
-public class EmailReminderSender implements ReminderSender {
+import com.studentportal.hibernate.UserService;
+import com.studentportal.user.User;
 
-    public void sendReminder(String title, String body) {
-        System.out.println("Sending Email Reminder...\n");
+import java.util.List;
+import java.util.Properties;
+import java.util.*;
+import javax.activation.*;
+
+public class EmailReminderSender extends ReminderSender {
+    UserService userService;
+
+    public EmailReminderSender() {
+        this.setSenderType(SenderType.EMAIL);
+    }
+
+    @Override
+    public void sendReminder(String title, String body, List<Integer> targetUserIds) {
+        userService = new UserService();
+
+        for(int userId : targetUserIds) {
+            sendEmail(userService.findById(userId).getUserEmail());
+        }
+    }
+
+    private void sendEmail(String userEmail) {
+
     }
 }

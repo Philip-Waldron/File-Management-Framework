@@ -7,24 +7,43 @@ import java.util.List;
 
 public class ReminderService {
     private ReminderDAO dao;
-    public Reminder findByTitle(String title) {
-        List<Reminder> rList = findAll();
-        for (Reminder reminder : rList) {
-            if (reminder.getTitle().equals(title)) {
-                return reminder;
-            }
-        }
-        return null;
+
+    public ReminderService() {
+        dao = new ReminderDAO();
     }
 
-    public Reminder findByMessage(String message) {
+    public List<Reminder> findRemindersByUserId(int ownerId) {
         List<Reminder> rList = findAll();
-        for (Reminder reminder : rList) {
-            if (reminder.getMessage().equals(message)) {
-                return reminder;
+        ArrayList<Reminder> rListByUserId = new ArrayList<>();
+        for(Reminder reminder : rList) {
+            for(int userId : reminder.getTargetUserIds()) {
+                if(userId == ownerId)
+                    rListByUserId.add(reminder);
             }
         }
-        return null;
+        return rList;
+    }
+
+    public List<Reminder> findByTitle(String title) {
+        List<Reminder> rList = findAll();
+        ArrayList<Reminder> rListByTitle = new ArrayList<>();
+        for (Reminder reminder : rList) {
+            if (reminder.getTitle().equals(title)) {
+                rListByTitle.add(reminder);
+            }
+        }
+        return rListByTitle;
+    }
+
+    public List<Reminder> findByMessage(String message) {
+        List<Reminder> rList = findAll();
+        ArrayList<Reminder> rListByMessage = new ArrayList<>();
+        for (Reminder reminder : rList) {
+            if (reminder.getMessage().equals(message)) {
+                rListByMessage.add(reminder);
+            }
+        }
+        return rListByMessage;
     }
 
     public Reminder findById(int id) {

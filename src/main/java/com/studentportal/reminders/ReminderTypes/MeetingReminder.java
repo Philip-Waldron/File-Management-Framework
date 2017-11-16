@@ -3,22 +3,24 @@ package com.studentportal.reminders.ReminderTypes;
 import com.studentportal.reminders.Senders.ReminderSender;
 
 import java.util.Date;
+import java.util.List;
 
 public class MeetingReminder extends Reminder {
 
-    public MeetingReminder() {
+    private MeetingReminder() {
         super();
         setDefaultValues();
     }
 
-    public MeetingReminder(Builder builder) {
+    public MeetingReminder(MeetingReminderBuilder builder) {
         this.sender = builder.sender;
         this.title = builder.title;
         this.message = builder.message;
         this.date = builder.date;
+        this.targetUserIds = builder.targetUserIds;
     }
 
-    public MeetingReminder(ReminderSender sender) {
+    private MeetingReminder(ReminderSender sender) {
         super();
         this.sender = sender;
         setDefaultValues();
@@ -32,31 +34,37 @@ public class MeetingReminder extends Reminder {
 
     @Override
     public void send() {
-        sender.sendReminder(title, message);
+        sender.sendReminder(title, message, targetUserIds);
     }
 
-    public static class Builder {
+    public static class MeetingReminderBuilder {
         private final ReminderSender sender;
         private String title;
         private String message;
         private Date date;
+        private List<Integer> targetUserIds;
 
-        public Builder(ReminderSender sender) {
+        public MeetingReminderBuilder(ReminderSender sender) {
             this.sender = sender;
         }
 
-        public Builder title(String title) {
+        public MeetingReminderBuilder title(String title) {
             this.title = title;
             return this;
         }
 
-        public Builder message(String message) {
+        public MeetingReminderBuilder message(String message) {
             this.message = message;
             return this;
         }
 
-        public Builder date(Date date) {
+        public MeetingReminderBuilder date(Date date) {
             this.date = date;
+            return this;
+        }
+
+        public MeetingReminderBuilder ownerId(List<Integer> targetUserIds) {
+            this.targetUserIds = targetUserIds;
             return this;
         }
 

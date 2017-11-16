@@ -3,8 +3,14 @@ package com.studentportal.ui;
 import com.studentportal.assignments.AssignmentHelper;
 import com.studentportal.assignments.QuizAssignment;
 import com.studentportal.assignments.QuizQuestion;
+import com.studentportal.courses.Course;
+import com.studentportal.hibernate.CourseService;
 import com.studentportal.http.*;
 import com.studentportal.http.assignments.SaveQuizRequest;
+import com.studentportal.http.reminders.SaveReminderRequest;
+import com.studentportal.reminders.ReminderHelper;
+import com.studentportal.reminders.ReminderTypes.AssignmentReminder;
+import com.studentportal.reminders.Senders.EmailReminderSender;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
@@ -151,11 +157,41 @@ public class CreateQuizAssignmentUi extends Ui {
                             .getFactory(RequestChoice.QUIZ);
                     SaveQuizRequest request = (SaveQuizRequest) quizReqFactory.saveRequest();
                     request.makeRequest(createHandler, json);
+
+                    sendReminders();
                 } else {
                     JOptionPane.showMessageDialog(getFrame(), "No questions for quiz");
                 }
             }
         });
+    }
+
+    private void sendReminders() {
+
+        RequestHandler reminderHandler = new RequestHandler() {
+            @Override
+            public void onSuccess() {
+                System.out.println("Reminder successfully saved");
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                e.printStackTrace();
+            }
+        };
+
+        CourseService courseService = new CourseService();
+        Course course = courseService.findByCode(courseCode);
+
+        AssignmentReminder reminder = new AssignmentReminder.AssignmentReminderBuilder(new EmailReminderSender())
+                .date(endDate)
+                .targetUserIds(course.getStudentIdList())
+                .build();
+
+        String reminderJson = ReminderHelper.convertReminderToJson(reminder);
+
+        SaveReminderRequest saveReminderRequest = new SaveReminderRequest();
+        saveReminderRequest.makeRequest(reminderHandler, reminderJson);
     }
 
     private List<QuizQuestion> getQuestionsFromRows(int rowCount, QuizAssignment a) {
