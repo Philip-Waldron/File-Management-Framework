@@ -3,10 +3,7 @@ package com.studentportal.reminders.ReminderTypes;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.studentportal.reminders.Senders.EmailReminderSender;
-import com.studentportal.reminders.Senders.PortalReminderSender;
-import com.studentportal.reminders.Senders.ReminderSender;
-import com.studentportal.reminders.Senders.SMSReminderSender;
+import com.studentportal.reminders.Senders.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,16 +18,17 @@ import java.util.List;
         @JsonSubTypes.Type(value = AssignmentReminder.class, name = "AssignmentReminder"),
         @JsonSubTypes.Type(value = MeetingReminder.class, name = "MeetingReminder")
     })
+
 public abstract class Reminder {
-    int reminderNum;
+    private int reminderNum;
     String title;
     String message;
     Date date;
     List<Integer> targetUserIds;
-    ReminderSender sender;
+    SenderType senderType;
 
     public Reminder() {
-        this.sender = sender;
+        this.senderType = senderType;
     }
 
     @Id
@@ -82,12 +80,14 @@ public abstract class Reminder {
         this.targetUserIds = targetUserIds;
     }
 
-    public ReminderSender getSender() {
-        return sender;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "senderType")
+    public SenderType getSenderType() {
+        return senderType;
     }
 
-    public void setSender(ReminderSender sender) {
-        this.sender = sender;
+    public void setSenderType(SenderType senderType) {
+        this.senderType = senderType;
     }
 
     public abstract void send();

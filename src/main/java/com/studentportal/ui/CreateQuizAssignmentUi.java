@@ -11,6 +11,7 @@ import com.studentportal.http.reminders.SaveReminderRequest;
 import com.studentportal.reminders.ReminderHelper;
 import com.studentportal.reminders.ReminderTypes.AssignmentReminder;
 import com.studentportal.reminders.Senders.EmailReminderSender;
+import com.studentportal.reminders.Senders.SenderType;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
@@ -183,7 +184,7 @@ public class CreateQuizAssignmentUi extends Ui {
         CourseService courseService = new CourseService();
         Course course = courseService.findByCode(courseCode);
 
-        AssignmentReminder reminder = new AssignmentReminder.AssignmentReminderBuilder(new EmailReminderSender())
+        AssignmentReminder reminder = new AssignmentReminder.AssignmentReminderBuilder(SenderType.EMAIL)
                 .date(endDate)
                 .targetUserIds(course.getStudentIdList())
                 .build();

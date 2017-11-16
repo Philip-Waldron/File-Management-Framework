@@ -6,6 +6,7 @@ import com.studentportal.reminders.ReminderTypes.MeetingReminder;
 import com.studentportal.reminders.ReminderTypes.Reminder;
 import com.studentportal.reminders.Senders.EmailReminderSender;
 import com.studentportal.reminders.Senders.SMSReminderSender;
+import com.studentportal.reminders.Senders.SenderType;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -30,7 +31,7 @@ public class RemindersUI extends Ui {
 
     private void populateReminders() {
         reminders = new ArrayList<Reminder>();
-        reminders.add(new AssignmentReminder.AssignmentReminderBuilder(new SMSReminderSender())
+        reminders.add(new AssignmentReminder.AssignmentReminderBuilder(SenderType.EMAIL)
                                             .date(new Date())
                                             .title("Assignment Due")
                                             .message("Assignment Due soon")

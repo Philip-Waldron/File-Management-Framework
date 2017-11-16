@@ -6,6 +6,7 @@ import com.studentportal.reminders.ReminderTypes.Reminder;
 import com.studentportal.reminders.Senders.EmailReminderSender;
 import com.studentportal.reminders.Senders.PortalReminderSender;
 import com.studentportal.reminders.Senders.SMSReminderSender;
+import com.studentportal.reminders.Senders.SenderType;
 import com.studentportal.ui.RemindersUI;
 
 import java.util.Date;
@@ -14,7 +15,7 @@ public class ReminderTestHarness {
 
     public static void main(String[] args) {
 
-        Reminder builtAssignmentReminder = new AssignmentReminder.AssignmentReminderBuilder(new EmailReminderSender())
+        Reminder builtAssignmentReminder = new AssignmentReminder.AssignmentReminderBuilder(SenderType.EMAIL)
                                                                  .title("Assignment Due")
                                                                  .message("You have an assignment due today")
                                                                  .date(new Date())

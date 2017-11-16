@@ -3,8 +3,13 @@ package com.studentportal.ui;
 import com.studentportal.assignments.AssignmentHelper;
 import com.studentportal.assignments.ProjectAssignment;
 import com.studentportal.courses.Course;
+import com.studentportal.hibernate.CourseService;
 import com.studentportal.http.*;
 import com.studentportal.http.assignments.SaveProjectRequest;
+import com.studentportal.http.reminders.SaveReminderRequest;
+import com.studentportal.reminders.ReminderHelper;
+import com.studentportal.reminders.ReminderTypes.AssignmentReminder;
+import com.studentportal.reminders.Senders.SenderType;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.swing.*;
@@ -141,10 +146,40 @@ public class ProjectDetailsUi extends Ui {
                         RequestAbstractFactory projectFactory = RequestFactoryProducer.getFactory(RequestChoice.PROJECT);
                         SaveProjectRequest request = (SaveProjectRequest) projectFactory.saveRequest();
                         request.makeRequest(createHandler, json);
+
+                        sendReminders(courseCode, endDate);
                     }
                 }
             }
         });
+    }
+
+    private void sendReminders(String courseCode, Date endDate) {
+
+        RequestHandler reminderHandler = new RequestHandler() {
+            @Override
+            public void onSuccess() {
+                System.out.println("Reminder successfully saved");
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                e.printStackTrace();
+            }
+        };
+
+        CourseService courseService = new CourseService();
+        Course course = courseService.findByCode(courseCode);
+
+        AssignmentReminder reminder = new AssignmentReminder.AssignmentReminderBuilder(SenderType.EMAIL)
+                .date(endDate)
+                .targetUserIds(course.getStudentIdList())
+                .build();
+
+        String reminderJson = ReminderHelper.convertReminderToJson(reminder);
+
+        SaveReminderRequest saveReminderRequest = new SaveReminderRequest();
+        saveReminderRequest.makeRequest(reminderHandler, reminderJson);
     }
 
     private int getCourseId(String courseCode) {

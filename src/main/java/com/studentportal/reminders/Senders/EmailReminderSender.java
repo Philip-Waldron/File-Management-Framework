@@ -8,12 +8,8 @@ import java.util.Properties;
 import java.util.*;
 import javax.activation.*;
 
-public class EmailReminderSender extends ReminderSender {
+public class EmailReminderSender implements ReminderSender {
     UserService userService;
-
-    public EmailReminderSender() {
-        this.setSenderType(SenderType.EMAIL);
-    }
 
     @Override
     public void sendReminder(String title, String body, List<Integer> targetUserIds) {
@@ -25,6 +21,6 @@ public class EmailReminderSender extends ReminderSender {
     }
 
     private void sendEmail(String userEmail) {
-
+        System.out.println("Sending email reminder to " + userEmail + "...");
     }
 }

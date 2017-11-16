@@ -1,5 +1,11 @@
 package com.studentportal.core;
 
+import com.studentportal.hibernate.ReminderService;
+import com.studentportal.reminders.ReminderTypes.AssignmentReminder;
+import com.studentportal.reminders.ReminderTypes.Reminder;
+import com.studentportal.reminders.Senders.EmailReminderSender;
+import com.studentportal.reminders.Senders.SenderType;
+import com.studentportal.serverscheduling.JobScheduler;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -7,6 +13,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Date;
 import java.util.logging.Logger;
 
 public class Server {
@@ -33,6 +40,7 @@ public class Server {
 
         try {
             srv.start();
+            JobScheduler.scheduleTasks();
             Thread.currentThread().join();
         } catch (IOException e) {
             e.printStackTrace();
