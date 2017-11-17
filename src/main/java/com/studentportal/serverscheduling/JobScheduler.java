@@ -28,9 +28,9 @@ public class JobScheduler {
         try {
             Scheduler jobScheduler = new StdSchedulerFactory().getScheduler();
             jobScheduler.start();
-//            jobScheduler.scheduleJob(checkReminderDateJob, nineAMTrigger);
+            jobScheduler.scheduleJob(checkReminderDateJob, nineAMTrigger);
 //            jobScheduler.scheduleJob(testJob, fiveSecondTrigger);
-        } catch(SchedulerException e) {
+        } catch (SchedulerException e) {
             e.printStackTrace();
         }
 

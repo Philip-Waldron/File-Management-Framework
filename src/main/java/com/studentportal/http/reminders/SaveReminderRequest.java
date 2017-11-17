@@ -38,6 +38,8 @@ public class SaveReminderRequest implements HttpRequest<Void, String> {
 
                 StringEntity entity = new StringEntity(json);
                 httpPost.setEntity(entity);
+                httpPost.addHeader("content-type", "application/json");
+
                 httpClient.execute(httpPost, responseHandler);
             } catch(IOException e) {
                 callback.onFailure(e);

@@ -1,10 +1,18 @@
 package com.studentportal.reminders.ReminderTypes;
 
 import com.studentportal.reminders.Senders.ReminderSender;
+import com.studentportal.reminders.Senders.ReminderSenderFactory;
+import com.studentportal.reminders.Senders.SenderType;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "assignment_reminders")
+@PrimaryKeyJoinColumn(name = "reminder_num")
 public class AssignmentReminder extends Reminder {
 
     private AssignmentReminder() {
@@ -13,16 +21,16 @@ public class AssignmentReminder extends Reminder {
     }
 
     public AssignmentReminder(AssignmentReminderBuilder builder) {
-        this.sender = builder.sender;
+        this.senderType = builder.senderType;
         this.title = builder.title;
         this.message = builder.message;
         this.date = builder.date;
         this.targetUserIds = builder.targetUserIds;
     }
 
-    private AssignmentReminder(ReminderSender sender) {
+    private AssignmentReminder(SenderType senderType) {
         super();
-        this.sender = sender;
+        this.senderType = senderType;
         setDefaultValues();
     }
 
@@ -34,18 +42,21 @@ public class AssignmentReminder extends Reminder {
 
     @Override
     public void send() {
-        sender.sendReminder(title, message, targetUserIds);
+        ReminderSender sender = ReminderSenderFactory.getReminderSenderForType(this.senderType);
+        if (sender != null) {
+            sender.sendReminder(title, message, targetUserIds);
+        } else System.out.print("Sender is null!");
     }
 
     public static class AssignmentReminderBuilder {
-        private final ReminderSender sender;
+        private final SenderType senderType;
         private String title;
         private String message;
         private Date date;
         private List<Integer> targetUserIds;
 
-        public AssignmentReminderBuilder(ReminderSender sender) {
-            this.sender = sender;
+        public AssignmentReminderBuilder(SenderType senderType) {
+            this.senderType = senderType;
         }
 
         public AssignmentReminderBuilder title(String title) {
@@ -69,10 +80,13 @@ public class AssignmentReminder extends Reminder {
         }
 
         public AssignmentReminder build() {
-            if(this.title == null)
+            if (this.title == null)
                 title = "Assignment Due";
-            if(this.message == null)
+            if (this.message == null)
                 message = "You have an assignment due today!";
+            if (this.date == null) {
+                date = new Date();
+            }
             return new AssignmentReminder(this);
         }
 

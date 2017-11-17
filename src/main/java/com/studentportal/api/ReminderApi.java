@@ -1,11 +1,8 @@
 package com.studentportal.api;
 
-import com.studentportal.assignments.AssignmentHelper;
-import com.studentportal.assignments.ProjectAssignment;
-import com.studentportal.commands.CreateAssignmentCommand;
+
 import com.studentportal.commands.ReminderGetForUserCommand;
 import com.studentportal.commands.ReminderSetCommand;
-import com.studentportal.hibernate.AssignmentService;
 import com.studentportal.hibernate.ReminderService;
 import com.studentportal.reminders.ReminderHelper;
 import com.studentportal.reminders.ReminderTypes.Reminder;
@@ -36,7 +33,7 @@ public class ReminderApi {
     @GET
     @Path("/byUser/{userId}")
     public List<Reminder> getRemindersForUser(@PathParam("userId") int userId) {
-        ReminderGetForUserCommand cmd = new ReminderGetForUserCommand(rService,userId);
+        ReminderGetForUserCommand cmd = new ReminderGetForUserCommand(rService, userId);
 
         ApiControl apiControl = new ApiControl();
         apiControl.setCommand(cmd);
