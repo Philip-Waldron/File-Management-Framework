@@ -1,10 +1,18 @@
 package com.studentportal.reminders.ReminderTypes;
 
 import com.studentportal.reminders.Senders.ReminderSender;
+import com.studentportal.reminders.Senders.ReminderSenderFactory;
+import com.studentportal.reminders.Senders.SenderType;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "meeting_reminders")
+@PrimaryKeyJoinColumn(name = "reminder_num")
 public class MeetingReminder extends Reminder {
 
     private MeetingReminder() {
@@ -13,17 +21,11 @@ public class MeetingReminder extends Reminder {
     }
 
     public MeetingReminder(MeetingReminderBuilder builder) {
-        this.sender = builder.sender;
+        this.senderType = builder.senderType;
         this.title = builder.title;
         this.message = builder.message;
         this.date = builder.date;
         this.targetUserIds = builder.targetUserIds;
-    }
-
-    private MeetingReminder(ReminderSender sender) {
-        super();
-        this.sender = sender;
-        setDefaultValues();
     }
 
     private void setDefaultValues() {
@@ -34,18 +36,23 @@ public class MeetingReminder extends Reminder {
 
     @Override
     public void send() {
-        sender.sendReminder(title, message, targetUserIds);
+        ReminderSender sender = ReminderSenderFactory.getReminderSenderForType(this.senderType);
+        if (sender != null) {
+            sender.sendReminder(title, message, targetUserIds);
+        } else System.out.print("Sender is null!");
+
     }
 
     public static class MeetingReminderBuilder {
-        private final ReminderSender sender;
+        private final SenderType senderType;
         private String title;
         private String message;
         private Date date;
         private List<Integer> targetUserIds;
 
-        public MeetingReminderBuilder(ReminderSender sender) {
-            this.sender = sender;
+
+        public MeetingReminderBuilder(SenderType senderType) {
+            this.senderType = senderType;
         }
 
         public MeetingReminderBuilder title(String title) {

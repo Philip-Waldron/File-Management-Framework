@@ -4,7 +4,6 @@ package com.studentportal.commands;
 import com.studentportal.hibernate.ReminderService;
 import com.studentportal.reminders.ReminderTypes.Reminder;
 
-import java.util.List;
 
 public class ReminderSetCommand implements Command<Void>{
     private ReminderService rService;

@@ -22,7 +22,7 @@ public class ReminderCheckJob implements Job {
             Calendar cal2 = Calendar.getInstance();
 
             cal1.setTime(reminder.getDate());
-            cal2.setTime(new Date());
+            cal2.setTime(context.getFireTime());
 
             boolean sameDay = cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
                     cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR);

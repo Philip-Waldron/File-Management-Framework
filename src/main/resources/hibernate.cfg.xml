@@ -38,5 +38,8 @@
         <mapping class="com.studentportal.user.Teacher"/>
         <mapping class="com.studentportal.user.Admin"/>
         <mapping class="com.studentportal.announcement.Announcement" />
+        <mapping class="com.studentportal.reminders.ReminderTypes.Reminder" />
+        <mapping class="com.studentportal.reminders.ReminderTypes.AssignmentReminder" />
+        <mapping class="com.studentportal.reminders.ReminderTypes.MeetingReminder" />
     </session-factory>
 </hibernate-configuration>
