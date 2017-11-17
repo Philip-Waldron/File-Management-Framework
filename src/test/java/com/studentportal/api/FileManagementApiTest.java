@@ -15,6 +15,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,6 +31,7 @@ public class FileManagementApiTest extends TestCase {
         super.setUp();
     }
 
+    @Test
     public void testUploadDocument() throws Exception {
         File file = new File("random2.pdf");
         Document doc = Document.createDocFromFile(file);
@@ -41,6 +43,7 @@ public class FileManagementApiTest extends TestCase {
         assertTrue(savedDoc.getFileName().equals(doc.getFileName()));
     }
 
+    @Test
     public void testDownloadDocument() throws Exception {
         File file = new File("random2.pdf");
         Document doc = Document.createDocFromFile(file);
