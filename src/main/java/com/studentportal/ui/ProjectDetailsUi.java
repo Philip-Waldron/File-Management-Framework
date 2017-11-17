@@ -168,8 +168,15 @@ public class ProjectDetailsUi extends Ui {
             }
         };
 
-        CourseService courseService = new CourseService();
-        Course course = courseService.findByCode(courseCode);
+//        CourseService courseService = new CourseService();
+//        Course course = courseService.findByCode(courseCode);
+        Course course = null;
+        for (Course c : cList) {
+            if (c.getCourseCode().equals(courseCode)) {
+                course = c;
+            }
+        }
+
 
         AssignmentReminder reminder = new AssignmentReminder.AssignmentReminderBuilder(SenderType.EMAIL)
                 .date(endDate)

@@ -4,7 +4,6 @@ import com.studentportal.assignments.AssignmentHelper;
 import com.studentportal.assignments.QuizAssignment;
 import com.studentportal.assignments.QuizQuestion;
 import com.studentportal.courses.Course;
-import com.studentportal.hibernate.CourseService;
 import com.studentportal.http.RequestAbstractFactory;
 import com.studentportal.http.RequestChoice;
 import com.studentportal.http.RequestFactoryProducer;
@@ -40,7 +39,7 @@ public class CreateQuizAssignmentUi extends Ui {
 
     private String name;
     private int courseId;
-    private String courseCode;
+    private Course course;
     private Date startDate;
     private Date endDate;
 
@@ -48,10 +47,10 @@ public class CreateQuizAssignmentUi extends Ui {
 
     private RequestHandler createHandler;
 
-    public CreateQuizAssignmentUi(String name, int courseId, String courseCode, Date startDate, Date endDate) {
+    public CreateQuizAssignmentUi(String name, int courseId, Course course, Date startDate, Date endDate) {
         this.name = name;
         this.courseId = courseId;
-        this.courseCode = courseCode;
+        this.course = course;
         this.startDate = startDate;
         this.endDate = endDate;
         this.createHandler = new RequestHandler() {
@@ -150,7 +149,7 @@ public class CreateQuizAssignmentUi extends Ui {
             public void actionPerformed(ActionEvent e) {
                 int rowCount = qTable.getRowCount();
                 if (rowCount > 0) {
-                    assignment = new QuizAssignment(0, name, courseId, courseCode,
+                    assignment = new QuizAssignment(0, name, courseId, course.getCourseCode(),
                             startDate, endDate, null);
                     List<QuizQuestion> quizList = getQuestionsFromRows(rowCount, assignment);
                     assignment.setQuizQuestions(quizList);
@@ -183,8 +182,8 @@ public class CreateQuizAssignmentUi extends Ui {
             }
         };
 
-        CourseService courseService = new CourseService();
-        Course course = courseService.findByCode(courseCode);
+//        CourseService courseService = new CourseService();
+//        Course course = courseService.findByCode(courseCode);
 
         AssignmentReminder reminder = new AssignmentReminder.AssignmentReminderBuilder(SenderType.EMAIL)
                 .date(endDate)

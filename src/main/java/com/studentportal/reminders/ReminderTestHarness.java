@@ -23,7 +23,8 @@ public class ReminderTestHarness {
         System.out.println("Assignment Built Reminder message : " + builtAssignmentReminder.getMessage());
         builtAssignmentReminder.send();
 
-        RemindersUI remindersUI = new RemindersUI();
+        int userId = -1;
+        RemindersUI remindersUI = new RemindersUI(userId);
         remindersUI.show();
 
     }

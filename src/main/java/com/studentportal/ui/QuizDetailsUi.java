@@ -95,7 +95,15 @@ public class QuizDetailsUi extends Ui {
                         } catch (ParseException e1) {
                             e1.printStackTrace();
                         }
-                        CreateQuizAssignmentUi ui = new CreateQuizAssignmentUi(name, courseId, courseCode,
+
+                        Course course = null;
+                        for (Course c : cList) {
+                            if (c.getCourseCode().equals(courseCode)) {
+                                course = c;
+                            }
+                        }
+
+                        CreateQuizAssignmentUi ui = new CreateQuizAssignmentUi(name, courseId, course,
                                 startDate, endDate);
                         ui.show();
                         getFrame().dispose();

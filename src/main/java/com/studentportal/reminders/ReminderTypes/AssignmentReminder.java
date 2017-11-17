@@ -37,7 +37,7 @@ public class AssignmentReminder extends Reminder {
     private void setDefaultValues() {
         date = new Date();
         title = "Assignment Due";
-        message = "You have an assignment due today!";
+        message = "You have an assignment due!";
     }
 
     @Override

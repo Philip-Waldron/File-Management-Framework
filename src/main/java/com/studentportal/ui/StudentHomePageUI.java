@@ -33,7 +33,7 @@ public class StudentHomePageUI extends HomePageUi {
 
         remindersButton = new JButton("Reminders");
         remindersButton.addActionListener(e -> {
-            RemindersUI remindersUI = new RemindersUI();
+            RemindersUI remindersUI = new RemindersUI(student.getUserNum());
             remindersUI.show();
         });
 

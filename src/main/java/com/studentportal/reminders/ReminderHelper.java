@@ -2,7 +2,9 @@ package com.studentportal.reminders;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.studentportal.assignments.Assignment;
 import com.studentportal.reminders.ReminderTypes.Reminder;
 
 import java.io.IOException;
@@ -36,7 +38,17 @@ public class ReminderHelper {
         return null;
     }
 
-    public static Reminder extractReminderListFromJson(String json) {
-        return null;
+    public static List<Reminder> extractReminderListFromJson(String json) {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Reminder> rList = null;
+        if (json != null) {
+            try {
+                rList = mapper.readValue(json, new TypeReference<List<Reminder>>() {
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return rList;
     }
 }

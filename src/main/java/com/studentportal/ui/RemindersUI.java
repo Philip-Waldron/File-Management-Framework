@@ -1,6 +1,8 @@
 package com.studentportal.ui;
 
 
+import com.studentportal.http.RequestHandler;
+import com.studentportal.http.reminders.GetRemindersForUserRequest;
 import com.studentportal.reminders.ReminderTypes.AssignmentReminder;
 import com.studentportal.reminders.ReminderTypes.MeetingReminder;
 import com.studentportal.reminders.ReminderTypes.Reminder;
@@ -22,20 +24,30 @@ public class RemindersUI extends Ui {
     private JButton backButton;
     private JButton fullDetailsButton;
     private JTable reminderTable;
-    private ArrayList<Reminder> reminders;
+    private List<Reminder> reminders;
 
-    public RemindersUI() {
+    private int userId;
+
+    public RemindersUI(int userId) {
+        this.userId = userId;
         populateReminders();
         prepareGUI();
     }
 
     private void populateReminders() {
-        reminders = new ArrayList<Reminder>();
-        reminders.add(new AssignmentReminder.AssignmentReminderBuilder(SenderType.EMAIL)
-                                            .date(new Date())
-                                            .title("Assignment Due")
-                                            .message("Assignment Due soon")
-                                            .build());
+        RequestHandler callback = new RequestHandler() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+
+            }
+        };
+        GetRemindersForUserRequest request = new GetRemindersForUserRequest();
+        reminders = request.makeRequest(callback, userId);
     }
 
     private void prepareGUI() {
